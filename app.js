@@ -24,14 +24,29 @@ app.set('view engine', 'html');
 app.engine('html', consolidate.handlebars); // Use handlebars to parse templates when we do res.render
 
 // connect to Database
-const db = 'mongodb://localhost:27017/uberForX';
-mongoose.connect(db).then(value => {
-    // Successful connection
-    console.log(value.models);
-}).catch(error => {
-    // Error in connection
-    console.log(error);
-});
+// const db = 'mongodb://localhost:27017/uberForX';
+// console.log(process.env)
+// mongoose.connect(process.env.MONGODB_URI, {
+//     useUnifiedTopology: true,
+//     useNewUrlParser: true,
+// }).then(value => {
+//     // Successful connection
+//     console.log(value.models);
+// }).catch(error => {
+//     // Error in connection
+//     console.log(error);
+// });
+
+try {
+    mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/uberForX', {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+    }) 
+} catch (e) {
+    console.log(e)
+}
+
+mongoose.set('useCreateIndex', true);
 
 app.use('/', routes);
 
@@ -39,6 +54,5 @@ const server = http.Server(app);
 // const portNumber = 8000; // for locahost:8000
 
 server.listen(process.env.PORT || 5000, () => { // Runs the server on port 8000
-    console.log(`Server listening at port ${portNumber}`);
     socketEvents.initialize(server);
 });
