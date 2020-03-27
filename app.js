@@ -36,9 +36,9 @@ mongoose.connect(db).then(value => {
 app.use('/', routes);
 
 const server = http.Server(app);
-const portNumber = 8000; // for locahost:8000
+// const portNumber = 8000; // for locahost:8000
 
-server.listen(portNumber, () => { // Runs the server on port 8000
+server.listen(process.env.PORT || 5000, () => { // Runs the server on port 8000
     console.log(`Server listening at port ${portNumber}`);
     socketEvents.initialize(server);
 });
