@@ -2,9 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Officer {{ userId }} </title>
     <link href="https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css" rel="stylesheet" />
+    <style>
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100vh;
+        }
+    </style>
 </head>
 
 <body data-userId="{{ userId }}">
@@ -43,7 +57,7 @@
 
         // First send a GET request using Axios and get the cop's details and save it
         axios.get(`/cops/info?userId=${userId}`)
-            .then( (response) => {
+            .then((response) => {
                 copDetails = response.data.copDetails;
                 copDetails.location = {
                     address: copDetails.location.address,
@@ -85,7 +99,7 @@
 
             // display civilian info
             document.getElementById("notification").innerHTML =
-            `Civilian ${requestDetails.civilianId} is being attacked by a wildling and needs help!
+                `Civilian ${requestDetails.civilianId} is being attacked by a wildling and needs help!
             They're at ${requestDetails.location.address}`;
 
             // Show civilian location on the map

@@ -2,9 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Visualize Crime Data</title>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css" rel="stylesheet" />
+    <style>
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,17 +36,29 @@
 
     // Empty variables to store information. This will get filled later
     let map, marker;
-    mapboxgl.accessToken = "<MAPBOX_ACCESS_TOKEN>";
+    let userLocation = {};
+    mapboxgl.accessToken = "pk.eyJ1Ijoib2NodWkiLCJhIjoiY2s4YTF4aDdpMGNnMDNscW1qYWEwanZqNSJ9.YxG1tPGUiIPFd8NsqSfauA";
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (data) {
+            userLocation = {
+                latitude: data.coords.latitude,
+                longitude: data.coords.longitude,
+            }
+        })
+    } else {
+        alert('location error')
+    }
 
     // First send a GET request using Axios and get the cop's details and save it
     axios.get("/requests/info")
-        .then( (response) => {
+        .then((response) => {
             console.log(response.data);
 
             map = new mapboxgl.Map({
                 container: "map",
                 style: "mapbox://styles/mapbox/dark-v9",
-                center: [77.64115449999997, 12.9718915],
+                center: [userLocation.latitude, userLocation.longitude],
                 zoom: 10
             });
 
@@ -65,7 +91,7 @@
                 });
             });
         })
-        .catch(function(error){
+        .catch(function (error) {
             console.log(error);
         });
 </script>

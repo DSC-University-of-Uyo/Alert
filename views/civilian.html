@@ -55,6 +55,14 @@
         L.mapbox.accessToken = "pk.eyJ1Ijoib2NodWkiLCJhIjoiY2s4YTF4aDdpMGNnMDNscW1qYWEwanZqNSJ9.YxG1tPGUiIPFd8NsqSfauA";
         map = L.mapbox.map("map", "mapbox.streets"); // Load the map and give it a default style
 
+        function errorHandler(err) {
+            if (err.code == 1) {
+                alert("Error: Access is denied!");
+            } else if (err.code == 2) {
+                alert("Error: Position is unavailable!");
+            }
+        }
+
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (data) {
@@ -70,6 +78,13 @@
                 map.setView([data.coords.latitude, data.coords.longitude], 15); // Load the map and set it to a given lat-lng
                 marker = L.marker([data.coords.latitude, data.coords.longitude]).addTo(map); // Display a default marker
             })
+
+            const options = { timeout: 60000 };
+            geoLoc = navigator.geolocation;
+            watchID = geoLoc.watchPosition(data => {
+                map.setView([data.coords.latitude, data.coords.longitude], 15); // Load the map and set it to a given lat-lng
+                marker = L.marker([data.coords.latitude, data.coords.longitude]).addTo(map); // Display a default marker
+            }, errorHandler, options);
         } else {
             alert('location error')
         }
