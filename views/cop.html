@@ -43,7 +43,7 @@
     <script type="text/javascript">
         const socket = io();
 
-        // Fetch userId from the data-atribute of the body tag
+        // Fetch userId from the data-attribute of the body tag
         const userId = document.body.getAttribute("data-userId");
         // Join a room, roomname is the userId itself!
         socket.emit("join", {
@@ -59,6 +59,7 @@
         axios.get(`/cops/info?userId=${userId}`)
             .then((response) => {
                 copDetails = response.data.copDetails;
+                console.log(copDetails)
                 copDetails.location = {
                     address: copDetails.location.address,
                     longitude: copDetails.location.coordinates[0],
@@ -82,7 +83,7 @@
                 map.addControl(L.mapbox.geocoderControl("mapbox.places", {
                     autocomplete: true,
                 }).on("select", (data) => { // This function runs when a place is selected
-                    // data contains the geocding results
+                    // data contains the geocoding results
                     console.log(data);
 
                     // Set the marker to new location
