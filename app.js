@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
 
+require('./server/config/mongoose');
+
 //Models
 require('./server/models/cop');
 require('./server/models/request');
@@ -35,7 +37,7 @@ app.use(bodyParser.json({
 app.use(express.static('./public')); // setting the folder name (public) where all the static files like css, js, images etc are made available
 
 app.use('/', copRouter);
-app.use('/api', apiRouter);
+app.use('/cops', apiRouter);
 app.use('/', civilianRouter);
 
 const server = http.Server(app);

@@ -5,10 +5,10 @@ const api = require('../controllers/api');
 router.get('/', api.findNearestCops);
 
 
-router.get('info', api.fetchCopDetails);
+router.get('/info', api.fetchCopDetails);
 
 
 // fetch all requests
-router.get('requests/info', api.fetchRequestInfo);
+router.get('/requests/info', api.fetchRequestInfo);
 
 module.exports = router;
