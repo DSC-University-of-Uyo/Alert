@@ -1,13 +1,27 @@
 const http = require('http');
 const express = require('express');
-const consolidate = require('consolidate');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const nunjucks = require('nunjucks');
 
-const routes = require('./routes'); //File that contains our endpoints
-const socketEvents = require('./socket-events');
+//Models
+require('./server/models/cop');
+require('./server/models/request');
+
+//Routes
+var copRouter = require('./server/routes/cop');
+var civilianRouter = require('./server/routes/civilian');
+var apiRouter = require('./server/routes/api');
+
+// Socket Events
+const socketEvents = require('./server/socket/events');
 
 const app = express();
+
+// Configure template engine
+nunjucks.configure('views', {
+    autoescape: true,
+    express: app
+});
 
 app.use(bodyParser.urlencoded({
     extended: true,
@@ -17,42 +31,16 @@ app.use(bodyParser.json({
     limit: '5mb'
 }));
 
-app.set('views', 'views'); // Set the folder-name from where you serve the html page.
+// app.set('views', 'views'); // Set the folder-name from where you serve the html page.
 app.use(express.static('./public')); // setting the folder name (public) where all the static files like css, js, images etc are made available
 
-app.set('view engine', 'html');
-app.engine('html', consolidate.handlebars); // Use handlebars to parse templates when we do res.render
-
-// connect to Database
-// const db = 'mongodb://localhost:27017/uberForX';
-// console.log(process.env)
-// mongoose.connect(process.env.MONGODB_URI, {
-//     useUnifiedTopology: true,
-//     useNewUrlParser: true,
-// }).then(value => {
-//     // Successful connection
-//     console.log(value.models);
-// }).catch(error => {
-//     // Error in connection
-//     console.log(error);
-// });
-
-try {
-    mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/uberForX', {
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-    }) 
-} catch (e) {
-    console.log(e)
-}
-
-mongoose.set('useCreateIndex', true);
-
-app.use('/', routes);
+app.use('/', copRouter);
+app.use('/api', apiRouter);
+app.use('/', civilianRouter);
 
 const server = http.Server(app);
-// const portNumber = 8000; // for locahost:8000
 
-server.listen(process.env.PORT || 5000, () => { // Runs the server on port 8000
+server.listen(process.env.PORT || 5000, () => {
+    console.log('app running on port', process.env.PORT || 5000)
     socketEvents.initialize(server);
 });
