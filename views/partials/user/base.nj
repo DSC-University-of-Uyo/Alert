@@ -5,7 +5,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         {% block head %}{% endblock %}
-        {% block title %}{% endblock %}
+        <style>
+            body,
+            html {
+                min-height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #map {
+                height: 100vh;
+            }
+
+            #user-stuff {
+                position: fixed;
+                background: transparent;
+                top: 30%;
+                left: 30%;
+                z-index: 9999;
+            }
+
+            #user-stuff button {
+                background: #000;
+                color: #fff;
+                font-family: sans-serif;
+                border: 1px solid #000;
+                padding: 10px;
+                border-radius: 4px;
+            }
+        </style>
         {% block css %}{% endblock %}
     </head>
 

@@ -1,0 +1,212 @@
+{% extends "partials/user/base.nj" %}
+
+{% block head %}
+<title>Cop {{ userId }}</title>
+{% endblock %}
+
+{% block content %}
+
+<body data-userId="{{ userId }}">
+    <div id="user-stuff">
+        <h1> Hello, Officer {{ userId }}
+        </h1>
+        <h2>Profile: </h2>
+        <div id="copDetails"></div>
+
+        <h4 id="notification"> Waiting for requests...</h4>
+
+        <button onclick="helpCivilian()"> Help Civilian</button>
+    </div>
+
+    <div id="map">
+        <!-- Load a map here -->
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- <script src="https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js"></script> -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRYhkASG4k8H08cIW-bVdOPqAYn4nyDiY&callback=initMap"
+        async defer></script>
+    <script type="text/javascript">
+        const socket = io();
+
+        // Fetch userId from the data-attribute of the body tag
+        const userId = document
+            .body
+            .getAttribute("data-userId");
+        // Join a room, room-name is the userId itself!
+        socket.emit("join", { userId: userId });
+
+        // Empty variables to store information. This will get filled later
+        let requestDetails = {};
+        let copDetails = {};
+        let map, marker, myLatLng;
+        let infoWindow;
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(
+                browserHasGeolocation
+                    ? 'Error: The Geolocation service failed.'
+                    : 'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+
+        function initMap() {
+            map = new google
+                .maps
+                .Map(document.getElementById('map'), {
+                    center: {
+                        lat: 6.465422,
+                        lng: 3.406448
+                    },
+                    zoom: 14
+                });
+            infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator
+                    .geolocation
+                    .getCurrentPosition(function (position) {
+                        var pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+
+                        // infoWindow.setPosition(pos);
+                        // infoWindow.setContent('Location found.');
+                        // infoWindow.open(map);
+                        map.setCenter(pos);
+                    }, function () {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        // First send a GET request using Axios and get the cop's details and save it
+        axios
+            .get(`/cops/info?userId=${userId}`)
+            .then((response) => {
+                copDetails = response.data.copDetails;
+                console.log(copDetails)
+                copDetails.location = {
+                    address: copDetails.location.address,
+                    longitude: copDetails.location.coordinates[0],
+                    latitude: copDetails.location.coordinates[1]
+                };
+
+                document
+                    .getElementById("copDetails")
+                    .innerHTML = `Display Name: ${copDetails.displayName}
+                    Address: ${copDetails.location.address}
+                    `;
+
+                myLatLng = {
+                    lat: copDetails.location.latitude,
+                    lng: copDetails.location.longitude
+                };
+
+                map.setCenter(myLatLng);
+
+                // L.mapbox.accessToken = "pk.eyJ1Ijoib2NodWkiLCJhIjoiY2s4YTF4aDdpMGNnMDNscW1qYWEwanZqNSJ9.YxG1tPGUiIPFd8NsqSfauA";
+                // // Load the map and set it to a cop's lat-lng
+                // map = L
+                //     .mapbox
+                //     .map("map", "mapbox.streets");
+                // map.setView([
+                //     copDetails.location.latitude, copDetails.location.longitude
+                // ], 15);
+
+                // // Display a default marker
+                // marker = L
+                //     .marker([copDetails.location.latitude, copDetails.location.longitude])
+                //     .addTo(map);
+
+                // Use MapBox geo-coding API
+                // map.addControl(L.mapbox.geocoderControl("mapbox.places", { autocomplete: true }).on("select", (data) => { // This function runs when a place is selected
+                //     // data contains the geocoding results
+                //     console.log(data);
+
+                //     // Set the marker to new location
+                //     marker.setLatLng([
+                //         data
+                //             .feature
+                //             .center[1],
+                //         data
+                //             .feature
+                //             .center[0]
+                //     ]);
+                // }));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+        // Listen for a 'request-for-help' event
+        socket.on("request-for-help", (eventData) => {
+            requestDetails = eventData; // Save request details
+
+            // display civilian info
+            document
+                .getElementById("notification")
+                .innerHTML = `Civilian ${requestDetails.civilianId} is being attacked by a wildling and needs help!
+            They're at ${requestDetails.location.address}`;
+
+            // Show civilian location on the map
+
+            var latLng = {
+                lat: requestDetails.location.latitude,
+                lng: requestDetails.location.longitude
+            };
+            marker = new google
+                .maps
+                .Marker({
+                    position: latLng,
+                    title: "Hello World!",
+                    image: {
+                        url: '/images/civilian.png',
+                        // This marker is 20 pixels wide by 32 pixels high.
+                        size: new google
+                            .maps
+                            .Size(50, 50),
+                        // The origin for this image is (0, 0).
+                        // origin: new google.maps.Point(0, 0),
+                        // The anchor for this image is the base of the flagpole at (0, 32).
+                        // anchor: new google.maps.Point(0, 32)
+                    }
+                });
+
+            // To add the marker to the map, call setMap();
+            // marker.setMap(map);
+            // L
+            //     .marker([
+            //         requestDetails.location.latitude, requestDetails.location.longitude
+            //     ], {
+            //         icon: L.icon({
+            //             iconUrl: "/images/civilian.png",
+            //             iconSize: [50, 50]
+            //         })
+            //     })
+            //     .addTo(map);
+
+            // To add the marker to the map, call setMap();
+            marker.setMap(map);
+
+        });
+
+        function helpCivilian() {
+            // On clicking the button, emit a 'request-accepted' event/signal and send relevant info back to server
+            socket.emit("request-accepted", {
+                requestDetails: requestDetails,
+                copDetails: copDetails
+            });
+        }
+    </script>
+    {% endblock %}
