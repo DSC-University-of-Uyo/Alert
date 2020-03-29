@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Civilian {{ userId }} </title>
-    <link href="https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css" rel="stylesheet" />
+    <!-- <link href="https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css" rel="stylesheet" /> -->
     <style>
         html,
         body {
@@ -18,18 +18,20 @@
         #map {
             height: 100vh;
         }
-         #user-stuff{
-            position:fixed;
-            background:transparent;
+
+        #user-stuff {
+            position: fixed;
+            background: transparent;
             top: 30%;
             left: 30%;
-            z-index:9999;
+            z-index: 9999;
         }
-        #user-stuff button{
+
+        #user-stuff button {
             background: #000;
             color: #fff;
             font-family: sans-serif;
-            border:1px solid #000;
+            border: 1px solid #000;
             padding: 10px;
             border-radius: 4px;
         }
@@ -37,7 +39,7 @@
 </head>
 
 <body data-userId="{{ userId }}">
-    
+
     <div id="user-stuff">
 
         <h1> Hello, Civilian {{ userId }} </h1>
@@ -57,7 +59,10 @@
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <script src="https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js"></script>
+    <!-- <script src="https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js"></script> -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRYhkASG4k8H08cIW-bVdOPqAYn4nyDiY&callback=initMap"
+        async defer></script>
 
     <script type="text/javascript">
         const socket = io();
@@ -65,15 +70,53 @@
         const userId = document.body.getAttribute("data-userId");
         socket.emit("join", {
             userId: userId
-        }); // Join a room, roomname is the userId itself!
+        }); // Join a room, room-name is the userId itself!
 
         // Empty variables to store information. This will get filled later
         let requestDetails = {};
         let copDetails = {};
         let map, marker;
 
-        L.mapbox.accessToken = "pk.eyJ1Ijoib2NodWkiLCJhIjoiY2s4YTF4aDdpMGNnMDNscW1qYWEwanZqNSJ9.YxG1tPGUiIPFd8NsqSfauA";
-        map = L.mapbox.map("map", "mapbox.streets"); // Load the map and give it a default style
+        // L.mapbox.accessToken = "pk.eyJ1Ijoib2NodWkiLCJhIjoiY2s4YTF4aDdpMGNnMDNscW1qYWEwanZqNSJ9.YxG1tPGUiIPFd8NsqSfauA";
+        // map = L.mapbox.map("map", "mapbox.streets"); // Load the map and give it a default style
+
+
+        var infoWindow;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 6.465422, lng: 3.406448 },
+                zoom: 14
+            });
+            infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Location found.');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
 
         function errorHandler(err) {
             if (err.code == 1) {
@@ -95,15 +138,26 @@
                         longitude: data.coords.longitude,
                     }
                 }
-                map.setView([data.coords.latitude, data.coords.longitude], 15); // Load the map and set it to a given lat-lng
-                marker = L.marker([data.coords.latitude, data.coords.longitude]).addTo(map); // Display a default marker
+                var myLatLng = { lat: data.coords.latitude, lng: data.coords.longitude };
+                marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title: "Hello World!"
+                });
+
+                // To add the marker to the map, call setMap();
+                marker.setMap(map);
             })
 
             const options = { timeout: 60000 };
-            geoLoc = navigator.geolocation;
-            watchID = geoLoc.watchPosition(data => {
-                map.setView([data.coords.latitude, data.coords.longitude], 15); // Load the map and set it to a given lat-lng
-                marker = L.marker([data.coords.latitude, data.coords.longitude]).addTo(map); // Display a default marker
+            watchID = navigator.geolocation.watchPosition(data => {
+                var myLatLng = { lat: data.coords.latitude, lng: data.coords.longitude };
+                marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title: "Hello World!"
+                });
+
+                // To add the marker to the map, call setMap();
+                marker.setMap(map);
             }, errorHandler, options);
         } else {
             alert('location error')
@@ -123,15 +177,23 @@
                 You can reach them at their mobile ${copDetails.phone}`;
 
             // Show cop location on the map
-            L.marker([
-                copDetails.location.latitude,
-                copDetails.location.longitude
-            ], {
-                icon: L.icon({
-                    iconUrl: "/images/cop.png",
-                    iconSize: [60, 28]
-                })
-            }).addTo(map);
+            var copLatLng = { lat: copDetails.location.latitude, lng: copDetails.location.longitude };
+            marker = new google.maps.Marker({
+                position: copLatLng,
+                title: "Hello World!",
+                image: {
+                    url: '/images/cop.png',
+                    // This marker is 20 pixels wide by 32 pixels high.
+                    size: new google.maps.Size(60, 28),
+                    // The origin for this image is (0, 0).
+                    // origin: new google.maps.Point(0, 0),
+                    // The anchor for this image is the base of the flagpole at (0, 32).
+                    // anchor: new google.maps.Point(0, 32)
+                }
+            });
+
+            // To add the marker to the map, call setMap();
+            marker.setMap(map);
         });
 
 
@@ -139,20 +201,20 @@
 
 
         // Use MapBox geo-coding API
-        map.addControl(L.mapbox.geocoderControl("mapbox.places", {
-            autocomplete: true,
-        }).on("select", (data) => { // This function runs when a place is selected
-            console.log(data); // data contains the geocding results
+        // map.addControl(L.mapbox.geocoderControl("mapbox.places", {
+        //     autocomplete: true,
+        // }).on("select", (data) => { // This function runs when a place is selected
+        //     console.log(data); // data contains the geocding results
 
-            // Extract address and coordinates from the results and save it
-            requestDetails.location = {
-                address: data.feature["place_name"],
-                latitude: data.feature.center[1],
-                longitude: data.feature.center[0]
-            };
+        //     // Extract address and coordinates from the results and save it
+        //     requestDetails.location = {
+        //         address: data.feature["place_name"],
+        //         latitude: data.feature.center[1],
+        //         longitude: data.feature.center[0]
+        //     };
 
-            marker.setLatLng([data.feature.center[1], data.feature.center[0]]); // Set the marker to new location
-        }));
+        //     marker.setLatLng([data.feature.center[1], data.feature.center[0]]); // Set the marker to new location
+        // }));
     </script>
 </body>
 
