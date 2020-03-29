@@ -113,10 +113,7 @@
                             longitude: data.coords.longitude
                         }
                     }
-                    myLatLng = {
-                        lat: data.coords.latitude,
-                        lng: data.coords.longitude
-                    };
+
                     marker = new google
                         .maps
                         .Marker({
@@ -137,10 +134,7 @@
             watchID = navigator
                 .geolocation
                 .watchPosition(data => {
-                    myLatLng = {
-                        lat: data.coords.latitude,
-                        lng: data.coords.longitude
-                    };
+
                     marker = new google
                         .maps
                         .Marker({
