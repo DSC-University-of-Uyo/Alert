@@ -11,4 +11,6 @@ router.get('/info', api.fetchCopDetails);
 // fetch all requests
 router.get('/requests/info', api.fetchRequestInfo);
 
+router.post('/update', api.updateCopLocation)
+
 module.exports = router;

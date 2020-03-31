@@ -55,6 +55,14 @@
             infoWindow.open(map);
         }
 
+        function errorHandler(err) {
+            if (err.code == 1) {
+                alert("Error: Access is denied!");
+            } else if (err.code == 2) {
+                alert("Error: Position is unavailable!");
+            }
+        }
+
         function initMap() {
             map = new google
                 .maps
@@ -77,6 +85,14 @@
                             lng: position.coords.longitude
                         };
 
+                        axios.post(`/cops/update?userId=${userId}`, {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        })
+                            .then((response) => {
+                                console.log(response)
+                            })
+
                         // infoWindow.setPosition(pos);
                         // infoWindow.setContent('Location found.');
                         // infoWindow.open(map);
@@ -84,6 +100,22 @@
                     }, function () {
                         handleLocationError(true, infoWindow, map.getCenter());
                     });
+                const options = {
+                    timeout: 60000
+                };
+
+                watchID = navigator
+                    .geolocation
+                    .watchPosition(data => {
+
+                        axios.post(`/cops/update?userId=${userId}`, {
+                            lat: data.coords.latitude,
+                            lng: data.coords.longitude
+                        })
+                            .then((response) => {
+
+                            })
+                    }, errorHandler, options);
             } else {
                 // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
