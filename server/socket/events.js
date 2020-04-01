@@ -41,9 +41,13 @@ function initialize(server) {
             const nearestCops = await cop.fetchNearestCops(location.coordinates, 2000);
             eventData.requestId = requestId;
 
-            // 3. After fetching nearest cops, fire a 'request-for-help' event to each of them
-            for (let i = 0; i < nearestCops.length; i++) {
-                io.sockets.in(nearestCops[i].userId).emit('request-for-help', eventData);
+            if (nearestCops.length == 0) {
+                io.sockets.in(eventData.civilianId).emit('no-cops', {})
+            } else {
+                // 3. After fetching nearest cops, fire a 'request-for-help' event to each of them
+                for (let i = 0; i < nearestCops.length; i++) {
+                    io.sockets.in(nearestCops[i].userId).emit('request-for-help', eventData);
+                }
             }
 
         });
