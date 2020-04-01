@@ -29,8 +29,8 @@ function initialize(server) {
 
             const location = { // Convert latitude and longitude to [longitude, latitude]
                 coordinates: [
+                    eventData.location.latitude,
                     eventData.location.longitude,
-                    eventData.location.latitude
                 ],
                 address: eventData.location.address
             };

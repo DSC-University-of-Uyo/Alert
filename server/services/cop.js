@@ -3,6 +3,7 @@
     var Cop = mongoose.model('Cop');
 
     exports.fetchNearestCops = function (coordinates, maxDistance) {
+        console.log(coordinates, maxDistance)
         return Cop.find({
             location: {
                 $near: {

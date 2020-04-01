@@ -31,6 +31,7 @@ exports.updateCopLocation = async (req, res) => {
 
     const userId = req.query.userId // xtract userId from query params
     const coords = [Number(req.body.lat), Number(req.body.lng)]; // lat, lng
+    console.log(coords)
     // console.log(coords)
     const copDetails = await cop.updateCopLocation(userId, coords);
 
