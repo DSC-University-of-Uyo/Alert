@@ -198,6 +198,7 @@
             // Listen for a 'request-for-help' event
             socket.on("request-for-help", (eventData) => {
                 requestDetails = eventData; // Save request details
+                audio.loop = true;
                 audio.play();
                 // display civilian info
                 document
