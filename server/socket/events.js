@@ -66,7 +66,7 @@ function initialize(server) {
             io.sockets.in(eventData.requestDetails.civilianId).emit('request-accepted', eventData.copDetails);
         });
 
-        socket.io('request-cancel', (eventData) => {
+        socket.on('request-cancel', (eventData) => {
 
         })
 
