@@ -253,6 +253,8 @@
                     requestDetails: requestDetails,
                     copDetails: copDetails
                 });
+
+                audio.pause();
             }
 
             function ignoreCivilian() {

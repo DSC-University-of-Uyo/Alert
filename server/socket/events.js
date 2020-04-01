@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 function initialize(server) {
     // Creating a new socket.io instance by passing the HTTP server object
     const io = require('socket.io')(server);
+    let alertedCops = []
 
     io.on('connection', (socket) => { // Listen on the 'connection' event for incoming sockets
         console.log('A user just connected');
@@ -38,7 +39,7 @@ function initialize(server) {
             await request.saveRequest(requestId, requestTime, location, eventData.civilianId, 'waiting');
 
             // 2. AFTER saving, fetch nearby cops from civilian’s location
-            const nearestCops = await cop.fetchNearestCops(location.coordinates, 2000);
+            const nearestCops = alertedCops = await cop.fetchNearestCops(location.coordinates, 2000);
             eventData.requestId = requestId;
 
             if (nearestCops.length == 0) {
@@ -64,6 +65,10 @@ function initialize(server) {
             // After updating the request, emit a 'request-accepted' event to the civilian and send cop details
             io.sockets.in(eventData.requestDetails.civilianId).emit('request-accepted', eventData.copDetails);
         });
+
+        socket.io('request-cancel', (eventData) => {
+
+        })
 
     });
 }
