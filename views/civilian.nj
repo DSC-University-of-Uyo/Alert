@@ -19,7 +19,7 @@
     <div id="map">
         <!-- Load a map here -->
     </div>
-
+    <iframe src="/audio/silence.mp3" type="audio/mp3" allow="autoplay" id="audio" style="display:none"></iframe>
     <script src="/socket.io/socket.io.js"></script>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -180,9 +180,9 @@
                     image: {
                         url: '/images/cop.png',
                         // This marker is 20 pixels wide by 32 pixels high.
-                        size: new google
-                            .maps
-                            .Size(60, 28),
+                        //size: new google
+                        //    .maps
+                        //    .Size(60, 28),
                         // The origin for this image is (0, 0).
                         // origin: new google.maps.Point(0, 0),
                         // The anchor for this image is the base of the flagpole at (0, 32).
