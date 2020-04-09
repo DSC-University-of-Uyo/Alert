@@ -1,5 +1,5 @@
 {% extends "partials/user/base.nj" %}
 
 {% block content %}
-    <h1>Hello world</h1>
+    <div id="firebaseui-auth-container"></div>
 {% endblock %}

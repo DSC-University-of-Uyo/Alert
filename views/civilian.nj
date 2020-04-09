@@ -4,6 +4,7 @@
     <title>Civilian {{ userId }}</title>
 {% endblock %}
 {% block content %}
+    <div id="firebaseui-auth-container"></div>
     <div id="user-stuff">
 
         <h1> Hello, Civilian {{ userId }}
@@ -19,6 +20,7 @@
     <div id="map">
         <!-- Load a map here -->
     </div>
+
     <iframe src="/audio/silence.mp3" type="audio/mp3" allow="autoplay" id="audio" style="display:none"></iframe>
     <script src="/socket.io/socket.io.js"></script>
 
