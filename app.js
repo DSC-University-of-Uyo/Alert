@@ -42,7 +42,7 @@ const router = AdminBroExpress.buildRouter(adminBro)
 nunjucks.configure('views', {
     autoescape: true,
     express: app
-});
+}).addGlobal('GOOGLE_MAP_KEY', process.env.GOOGLE_MAP_KEY);
 
 app.use(bodyParser.urlencoded({
     extended: true,

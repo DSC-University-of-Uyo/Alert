@@ -1,5 +1,5 @@
 {% extends "partials/user/base.nj" %}
-
 {% block content %}
     <div id="firebaseui-auth-container"></div>
+    <h1>{{GOOGLE_MAP_KEY}}</h1>
 {% endblock %}
