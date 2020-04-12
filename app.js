@@ -39,10 +39,11 @@ const adminBro = new AdminBro({
 const router = AdminBroExpress.buildRouter(adminBro)
 
 // Configure template engine
-nunjucks.configure('views', {
-    autoescape: true,
-    express: app
-}).addGlobal('GOOGLE_MAP_KEY', process.env.GOOGLE_MAP_KEY);
+nunjucks.configure(
+    'views', {
+        autoescape: true,
+        express: app
+    }).addGlobal('GOOGLE_MAP_KEY', process.env.GOOGLE_MAP_KEY).addGlobal('FIREBASE_KEY', process.env.FIREBASE_KEY);
 
 app.use(bodyParser.urlencoded({
     extended: true,
