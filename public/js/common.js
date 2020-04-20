@@ -1,3 +1,11 @@
+const socket = io();
+const userId = document.body.getAttribute("data-userId");
+let src = 'audio/emergency_alert.mp3';
+let audio = new Audio(src);
+
+
+// socket.emit("join", { userId: userId }); // Join a room, room-name is the userId itself!
+
 /**
  * Common methods for both the main app page and standalone widget.
  */
@@ -41,4 +49,16 @@ function parseQueryString(queryString) {
         }
     }
     return config;
+}
+
+
+function buildUrl(p = null) {
+    const { host, protocol } = window.location;
+    let url = protocol + '//' + host;
+
+    if (p) {
+        url = url + p;
+    }
+
+    return url;
 }

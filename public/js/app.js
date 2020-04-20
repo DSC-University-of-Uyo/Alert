@@ -13,11 +13,11 @@ function getUiConfig() {
                 if (authResult.user) {
                     handleSignedInUser(authResult.user);
                 }
-                if (authResult.additionalUserInfo) {
-                    document.getElementById('is-new-user').textContent =
-                        authResult.additionalUserInfo.isNewUser ?
-                        'New User' : 'Existing User';
-                }
+                // if (authResult.additionalUserInfo) {
+                //     document.getElementById('is-new-user').textContent =
+                //         authResult.additionalUserInfo.isNewUser ?
+                //         'New User' : 'Existing User';
+                // }
                 // Do not redirect.
                 return false;
             }
@@ -31,19 +31,19 @@ function getUiConfig() {
                 // Required to enable this provider in One-Tap Sign-up.
                 authMethod: 'https://accounts.google.com',
                 // Required to enable ID token credentials for this provider.
-                // clientId: CLIENT_ID
+                clientId: "{{CLIENT_ID}}"
             },
-            {
-                provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                scopes: [
-                    'public_profile',
-                    'email',
-                    'user_likes',
-                    'user_friends'
-                ]
-            },
-            firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-            firebase.auth.GithubAuthProvider.PROVIDER_ID,
+            // {
+            //     provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            //     /civilian.html
+            //         'public_profile',
+            //         'email',
+            //         'user_likes',
+            //         'user_friends'
+            //     ]
+            // },
+            // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+            // firebase.auth.GithubAuthProvider.PROVIDER_ID,
             {
                 provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
                 // Whether the display name should be displayed in Sign Up page.
@@ -54,16 +54,17 @@ function getUiConfig() {
                 provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
                 recaptchaParameters: {
                     size: getRecaptchaMode()
-                }
+                },
+                whitelistedCountries: ['NG', '+234']
             },
-            {
-                provider: 'microsoft.com',
-                loginHintKey: 'login_hint'
-            },
-            {
-                provider: 'apple.com',
-            },
-            firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+            // {
+            //     provider: 'microsoft.com',
+            //     loginHintKey: 'login_hint'
+            // },
+            // {
+            //     provider: 'apple.com',
+            // },
+            // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
         ],
         // Terms of service url.
         'tosUrl': 'https://www.google.com',
@@ -110,26 +111,39 @@ var signInWithPopup = function() {
  * @param {!firebase.User} user
  */
 var handleSignedInUser = function(user) {
+
+    socket.emit("join", { userId: user.uid }); // Join a room, room-name is the userId itself!
+
+    // document.body.getAttribute("data-userId") = user.uid;
     document.getElementById('user-signed-in').style.display = 'block';
     document.getElementById('user-signed-out').style.display = 'none';
-    document.getElementById('name').textContent = user.displayName;
-    document.getElementById('email').textContent = user.email;
-    document.getElementById('phone').textContent = user.phoneNumber;
-    if (user.photoURL) {
-        var photoURL = user.photoURL;
-        // Append size to the photo URL for Google hosted images to avoid requesting
-        // the image with its original resolution (using more bandwidth than needed)
-        // when it is going to be presented in smaller size.
-        if ((photoURL.indexOf('googleusercontent.com') != -1) ||
-            (photoURL.indexOf('ggpht.com') != -1)) {
-            photoURL = photoURL + '?sz=' +
-                document.getElementById('photo').clientHeight;
-        }
-        document.getElementById('photo').src = photoURL;
-        document.getElementById('photo').style.display = 'block';
-    } else {
-        document.getElementById('photo').style.display = 'none';
-    }
+    document.getElementById('name').textContent = `Hello, ${user.displayName}`;
+    // document.getElementById('email').textContent = user.email;
+    // document.getElementById('phone').textContent = user.phoneNumber;
+    // document.getElementById('user-id').textContent = user.uid;
+    document.body.setAttribute('data-userId', user.uid)
+        // if (user.photoURL) {
+        //     var photoURL = user.photoURL;
+        //     // Append size to the photo URL for Google hosted images to avoid requesting
+        //     // the image with its original resolution (using more bandwidth than needed)
+        //     // when it is going to be presented in smaller size.
+        //     if ((photoURL.indexOf('googleusercontent.com') != -1) ||
+        //         (photoURL.indexOf('ggpht.com') != -1)) {
+        //         photoURL = photoURL + '?sz=' +
+        //             document.getElementById('photo').clientHeight;
+        //     }
+        //     document.getElementById('photo').src = photoURL;
+        //     document.getElementById('photo').style.display = 'block';
+        // } else {
+        //     document.getElementById('photo').style.display = 'none';
+        // }
+
+    // if (pathname == '/civilian.html') {
+    //     // redirect the user
+
+    //     window.location.href = buildUrl(pathname + '?userId=' + user.displayName.replace(/\s+/g, ''))
+    // }
+
 };
 
 
@@ -145,6 +159,7 @@ var handleSignedOutUser = function() {
 // Listen to change in auth state so it displays the correct UI for when
 // the user is signed in or not.
 firebase.auth().onAuthStateChanged(function(user) {
+
     document.getElementById('loading').style.display = 'none';
     document.getElementById('loaded').style.display = 'block';
     user ? handleSignedInUser(user) : handleSignedOutUser();
@@ -170,57 +185,18 @@ var deleteAccount = function() {
 
 
 /**
- * Handles when the user changes the reCAPTCHA or email signInMethod config.
- */
-function handleConfigChange() {
-    var newRecaptchaValue = document.querySelector(
-        'input[name="recaptcha"]:checked').value;
-    var newEmailSignInMethodValue = document.querySelector(
-        'input[name="emailSignInMethod"]:checked').value;
-    location.replace(
-        location.pathname + '#recaptcha=' + newRecaptchaValue +
-        '&emailSignInMethod=' + newEmailSignInMethodValue);
-
-    // Reset the inline widget so the config changes are reflected.
-    ui.reset();
-    ui.start('#firebaseui-container', getUiConfig());
-}
-
-
-/**
  * Initializes the app.
  */
 var initApp = function() {
-    document.getElementById('sign-in-with-redirect').addEventListener(
-        'click', signInWithRedirect);
-    document.getElementById('sign-in-with-popup').addEventListener(
-        'click', signInWithPopup);
+
     document.getElementById('sign-out').addEventListener('click', function() {
         firebase.auth().signOut();
     });
-    document.getElementById('delete-account').addEventListener(
-        'click',
-        function() {
-            deleteAccount();
-        });
-
-    document.getElementById('recaptcha-normal').addEventListener(
-        'change', handleConfigChange);
-    document.getElementById('recaptcha-invisible').addEventListener(
-        'change', handleConfigChange);
-    // Check the selected reCAPTCHA mode.
-    document.querySelector(
-            'input[name="recaptcha"][value="' + getRecaptchaMode() + '"]')
-        .checked = true;
-
-    document.getElementById('email-signInMethod-password').addEventListener(
-        'change', handleConfigChange);
-    document.getElementById('email-signInMethod-emailLink').addEventListener(
-        'change', handleConfigChange);
-    // Check the selected email signInMethod mode.
-    document.querySelector(
-            'input[name="emailSignInMethod"][value="' + getEmailSignInMethod() + '"]')
-        .checked = true;
+    // document.getElementById('delete-account').addEventListener(
+    //     'click',
+    //     function() {
+    //         deleteAccount();
+    //     });
 };
 
 window.addEventListener('load', initApp);
