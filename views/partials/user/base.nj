@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
+        <link rel="manifest" href="manifest.json">
         <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css"/>
         {% block head %}{% endblock %}
         <style>
@@ -84,18 +85,17 @@
         <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
         <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-analytics.js"></script>
-
         <script>
             // Your web app's Firebase configuration
             var firebaseConfig = {
                 apiKey: "{{FIREBASE_KEY}}",
-                authDomain: "alert-web-273911.firebaseapp.com",
-                databaseURL: "https://alert-web-273911.firebaseio.com",
-                projectId: "alert-web-273911",
-                storageBucket: "alert-web-273911.appspot.com",
-                messagingSenderId: "841848990454",
-                appId: "1:841848990454:web:1db644af3084880e0a5ad7",
-                measurementId: "G-821XBGH0EJ"
+                authDomain: "alert-web-274206.firebaseapp.com",
+                databaseURL: "https://alert-web-274206.firebaseio.com",
+                projectId: "alert-web-274206",
+                storageBucket: "alert-web-274206.appspot.com",
+                messagingSenderId: "486189297018",
+                appId: "1:486189297018:web:9d5a42d150e8dba02ffac3",
+                measurementId: "G-KHF657BVWT"
             };
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
@@ -104,95 +104,8 @@
         <!-- Add Firebase products that you want to use -->
         <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
-
-        <script type="text/javascript">
-            // FirebaseUI config.
-            var uiConfig = {
-                signInFlow: 'popup',
-                signInSuccessUrl: 'https://e864fcc6.ngrok.io/',
-                signInOptions: [
-                    // TODO(developer): Remove the providers you don't need for your app.
-                    {
-                        provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                        // Required to enable this provider in One-Tap Sign-up.
-                        authMethod: 'https://accounts.google.com',
-                        // Required to enable ID token credentials for this provider.
-                        // clientId: CLIENT_ID
-                    }, //{
-                    //provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                    //scopes: ['public_profile', 'email', 'user_likes', 'user_friends']
-                    //},
-                    //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-                    {
-                        provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-                        recaptchaParameters: {
-                            size: getRecaptchaMode()
-                        }
-                    },
-                    // {
-                    // provider: 'microsoft.com',
-                    // loginHintKey: 'login_hint'
-                    //},  {
-                    //    provider: 'apple.com'
-                    //},
-                    //firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
-                ],
-                // tosUrl and privacyPolicyUrl accept either url string or a callback
-                // function.
-                // Terms of service url/callback.
-                tosUrl: 'https://e864fcc6.ngrok.io/',
-                // Privacy policy url/callback.
-                privacyPolicyUrl: function () {
-                    window
-                        .location
-                        .assign('https://e864fcc6.ngrok.io/');
-                }
-            };
-
-            function getRecaptchaMode() {
-                var config = parseQueryString(location.hash);
-                return config['recaptcha'] === 'invisible'
-                    ? 'invisible'
-                    : 'normal';
-            }
-
-            /**
-         * @return {string} The email signInMethod from the configuration.
-         */
-            function getEmailSignInMethod() {
-                var config = parseQueryString(location.hash);
-                return config['emailSignInMethod'] === 'password'
-                    ? 'password'
-                    : 'emailLink';
-            }
-
-            /**
-         * @param {string} queryString The full query string.
-         * @return {!Object<string, string>} The parsed query parameters.
-         */
-            function parseQueryString(queryString) {
-                // Remove first character if it is ? or #.
-                if (queryString.length && (queryString.charAt(0) == '#' || queryString.charAt(0) == '?')) {
-                    queryString = queryString.substring(1);
-                }
-                var config = {};
-                var pairs = queryString.split('&');
-                for (var i = 0; i < pairs.length; i++) {
-                    var pair = pairs[i].split('=');
-                    if (pair.length == 2) {
-                        config[pair[0]] = pair[1];
-                    }
-                }
-                return config;
-            }
-            // Initialize the FirebaseUI Widget using Firebase.
-            var ui = new firebaseui
-                .auth
-                .AuthUI(firebase.auth());
-
-            // The start method will wait until the DOM is loaded.
-            ui.start('#firebaseui-auth-container', uiConfig);
-        </script>
+        <script src="js/common.js"></script>
+        <script src="js/app.js"></script>
     </body>
 
 </html>

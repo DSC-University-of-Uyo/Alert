@@ -1,0 +1,13 @@
+{
+    "name": "ALERT",
+    "short_name": "ALERT",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "lang": "en-US",
+    "description": "",
+    "prefer_related_applications": false,
+    "theme_color": "#fff",
+    "scope": "/",
+    "orientation": "portrait-primary"
+}
