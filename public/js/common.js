@@ -1,5 +1,5 @@
 const socket = io();
-const userId = document.body.getAttribute("data-userId");
+let userId = document.body.getAttribute("data-userId");
 let src = 'audio/emergency_alert.mp3';
 let audio = new Audio(src);
 

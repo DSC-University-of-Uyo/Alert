@@ -111,6 +111,7 @@ var signInWithPopup = function() {
  * @param {!firebase.User} user
  */
 var handleSignedInUser = function(user) {
+    userId = user.uid;
 
     socket.emit("join", { userId: user.uid }); // Join a room, room-name is the userId itself!
 
