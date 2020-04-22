@@ -11,6 +11,7 @@ const copSchema = mongoose.Schema({
     email: { type: String, unique: true },
     earnedRatings: { type: Number },
     totalRatings: { type: Number },
+    approved: { type: Boolean },
     location: {
         type: {
             type: String,

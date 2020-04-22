@@ -42,12 +42,7 @@ function initMap() {
                 lng: position.coords.longitude
             };
 
-            axios.post(`/cops/update?userId=${userId}`, {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            }).then((response) => {
-                console.log(response)
-            })
+
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
@@ -56,21 +51,7 @@ function initMap() {
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
-        const options = {
-            timeout: 60000
-        };
 
-        watchID = navigator
-            .geolocation
-            .watchPosition(data => {
-
-                axios
-                    .post(`/cops/update?userId=${userId}`, {
-                        lat: data.coords.latitude,
-                        lng: data.coords.longitude
-                    })
-                    .then((response) => {})
-            }, errorHandler, options);
     } else {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
@@ -86,7 +67,7 @@ function getCopData() {
         copDetails.location = {
             address: copDetails.location.address,
             longitude: copDetails.location.coordinates[0],
-            latitude: copDetails.location.coordinates[1]
+            latitude: copDetails.location.coordinates[1],
         };
 
         document.getElementById("copDetails").innerHTML = `Display Name: ${copDetails.displayName} Address: ${copDetails.location.address} `;
@@ -197,6 +178,32 @@ function ignoreCivilian() {
 }
 
 
+function updateCopLocation(position) {
+    axios.post(`/cops/update?userId=${userId}`, {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+    }).then((response) => {
+        console.log(response)
+    })
+}
+
+
+
 window.addEventListener('load', (event) => {
-    getCopData()
+    const options = {
+        timeout: 60000
+    };
+    watchID = navigator.geolocation.watchPosition(data => {
+
+        if (userId !== null) {
+            axios.post(`/cops/update?userId=${userId}`, {
+                lat: data.coords.latitude,
+                lng: data.coords.longitude
+            }).then((response) => {
+                console.log('position updated', response)
+            })
+
+            getCopData();
+        }
+    }, errorHandler, options);
 });

@@ -10,15 +10,28 @@ function getUiConfig() {
         'callbacks': {
             // Called when the user has been successfully signed in.
             'signInSuccessWithAuthResult': function(authResult, redirectUrl) {
+                console.log(authResult)
                 if (authResult.user) {
                     handleSignedInUser(authResult.user);
                 }
-                // if (authResult.additionalUserInfo) {
-                //     document.getElementById('is-new-user').textContent =
-                //         authResult.additionalUserInfo.isNewUser ?
-                //         'New User' : 'Existing User';
-                // }
-                // Do not redirect.
+                if (authResult.additionalUserInfo.isNewUser && window.location.pathname == '/cop.html') {
+                    axios.post(`/cops/create`, {
+                        userId: authResult.user.uid,
+                        displayName: authResult.user.displayName,
+                        email: authResult.user.email,
+                        approved: false,
+                        location: {
+                            type: "Point",
+                            address: "",
+                            coordinates: [
+                                77.63997110000003,
+                                13.0280047
+                            ]
+                        }
+                    }).then((response) => {
+                        console.log(response)
+                    })
+                }
                 return false;
             }
         },
@@ -154,6 +167,8 @@ var handleSignedInUser = function(user) {
 var handleSignedOutUser = function() {
     document.getElementById('user-signed-in').style.display = 'none';
     document.getElementById('user-signed-out').style.display = 'block';
+    document.body.setAttribute('data-userId', null)
+    userId = null;
     ui.start('#firebaseui-container', getUiConfig());
 };
 

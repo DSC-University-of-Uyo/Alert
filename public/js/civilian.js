@@ -198,3 +198,10 @@ socket.on('no-cops', (eventData) => {
     copModal.close()
     Swal.fire('Unfortunately we where unable to find security personnel near you. Please try again')
 })
+
+firebase.auth().onAuthStateChanged(function(user) {
+
+    if (user) {
+        requestDetails.civilianId = user.uid;
+    }
+});
