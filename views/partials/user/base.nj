@@ -8,6 +8,7 @@
         <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
         <link rel="manifest" href="manifest.json">
         <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css"/>
+        <script src="js/manup.min.js"></script>
         {% block head %}{% endblock %}
         <style>
             body,

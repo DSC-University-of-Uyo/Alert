@@ -1,13 +1,111 @@
 {
     "name": "ALERT",
     "short_name": "ALERT",
-    "start_url": "/",
+    "start_url": "https://agile-reef-60327.herokuapp.com/",
     "display": "standalone",
-    "background_color": "#fff",
-    "lang": "en-US",
+    "background_color": "#ffffff",
+    "lang": "English",
     "description": "",
     "prefer_related_applications": false,
     "theme_color": "#fff",
     "scope": "/",
-    "orientation": "portrait-primary"
+    "orientation": "portrait-primary",
+    "url": "https://agile-reef-60327.herokuapp.com/civilian.html",
+    "icons": [{
+            "src": "/images/ab437986-b12e-032c-e841-a2572c48a837.webPlatform.png",
+            "sizes": "44x44",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/76899d79-41e8-ec62-cae6-73f55baa5576.webPlatform.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/aa6f6375-683e-183c-1630-f95f522be6cc.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/50dec38e-51f8-beb6-3100-b23923bb7f87.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/a2873dd6-8f75-61c4-725e-ad73976ea3b2.webPlatform.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/49eeec09-21cd-028e-b84a-a074fba9cafb.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/6b0d4726-27e7-7f12-bbb6-d9af62d8bd26.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/4ac904e2-9724-19c4-2546-2dbe9857ce72.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/a6a9a9ce-ce46-9e94-a069-19fe83239010.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/7e88e5bf-7338-e2ee-d57e-61e70b14d3be.webPlatform.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/ea0da22f-2638-6a9a-58b6-1c60b9803183.webPlatform.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/25676773-d933-8f3d-1b57-7e7f5044d58e.webPlatform.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/ecd3511a-daa6-8d70-e22b-465e660e08e9.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/1a8f848b-f20e-b43b-d013-4de96c00073b.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/be993ec0-4d5e-f2ab-bd48-1d725bdb9a3a.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/927cbb34-423b-e529-8f26-0033e3a3e6bf.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/72b0ef41-40dc-1e03-85c3-32fb21bdfac2.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/77f94b28-df80-3c10-9e1f-26c31b90975c.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/fc12db1d-569c-d29c-9da8-eb5f899d22d7.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": []
 }
