@@ -1,0 +1,191 @@
+{% extends "partials/alert/base.nj" %}
+
+{% block content %}
+    <main>
+        <!-- Hero -->
+        <section id="landing-two" class="section section-lg  overlay-dark text-white" style="background: #005AD4;"  data-background="">
+            <div class="container">
+                <div class="row justify-content-center pt-5">
+                    <div class="col-10 mx-auto text-center">
+                        <!-- Heading -->
+                        <h1 class="display-2">About Alert </h1>
+                        <!-- Text -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section -->
+        <section class="section section-xl">
+            <div class="container">
+                <div class="row align-items-center justify-content-around">
+                    <div class="col-md-6 col-xl-6 my-5 mt-sm-0 d-none d-xl-block"><img class="rounded overlay-dark position-relative img-fluid effect-img-1" src="../../assets/img/about-1.jpg" alt="Image">
+                        <img class="rounded overlay-dark position-absolute img-fluid effect-img-2" src="../../assets/img/about-2.jpg" alt="Image"></div>
+                    <div class="col-md-6 col-xl-5 text-center text-md-left">
+                        <h2 class="mb-5">Small team, <span class="font-weight-bold">Big hearts.</span></h2>
+                        <p class="lead">
+                            <span class="font-weight-bold">Spaces</span> takes coworking—a revolutionary way to work—and makes it even better. Coworking spaces are primed for productivity and provide everything you need to do your best work. But a costly membership at a coworking space isn’t for everyone.</p>
+                        <p class="lead">With a culture of collaboration, a roster of talent, and several office pooches, the Spaces team is active in the creative community, endlessly interested in what’s next, and generally pleasant to be around.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of section -->
+<section class="section section-lg bg-soft">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h2>
+                    <span class="font-weight-bold">Meet Our Team</span></h2>
+                <p class="lead mt-4">Our globally distributed team allows us to maintain operational efficiency and provide 24/7 customer service while working toward a shared goal. In order to know the world, one must see the world.
+                            <br>Our team has now visited coworking spaces in more than 100 countries.</p>
+            </div>
+        </div>
+        <div class="row my-6">
+            <div class="col-8 col-md-6 col-lg-3 mx-auto">
+                <!-- Profile Card -->
+                <div class="profile-card-alternative rounded text-center over-hide"><img src="../../assets/img/team/profile-image-2.jpg" alt="image">
+                    <div class="team-mask bg-white rounded d-flex align-items-center">
+                        <h4>Tanislav Robert</h4>
+                        <h6 class="card-subtitle mt-n5">CEO</h6>
+                        <ul class="social-buttons">
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-slack">
+                                    <i class="fab fa-slack-hash"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-google-plus">
+                                    <i class="fab fa-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End of Profile Card -->
+            </div>
+            <div class="col-8 col-md-6 col-lg-3 mx-auto">
+                <!-- Profile Card -->
+                <div class="profile-card-alternative rounded text-center over-hide"><img src="../../assets/img/team/profile-image-1.jpg" alt="image">
+                    <div class="team-mask bg-white rounded d-flex align-items-center">
+                        <h4>Calota Oana</h4>
+                        <h6 class="card-subtitle mt-n5">Agent</h6>
+                        <ul class="social-buttons">
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-slack">
+                                    <i class="fab fa-slack-hash"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-google-plus">
+                                    <i class="fab fa-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End of Profile Card -->
+            </div>
+            <div class="col-8 col-md-6 col-lg-3 mx-auto">
+                <!-- Profile Card -->
+                <div class="profile-card-alternative rounded text-center over-hide"><img src="../../assets/img/team/profile-image-3.jpg" alt="image">
+                    <div class="team-mask bg-white rounded d-flex align-items-center">
+                        <h4>Calota Anca</h4>
+                        <h6 class="card-subtitle mt-n5">Marketing</h6>
+                        <ul class="social-buttons">
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-slack">
+                                    <i class="fab fa-slack-hash"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-google-plus">
+                                    <i class="fab fa-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End of Profile Card -->
+            </div>
+            <div class="col-8 col-md-6 col-lg-3 mx-auto">
+                <!-- Profile Card -->
+                <div class="profile-card-alternative rounded text-center over-hide"><img src="../../assets/img/team/profile-image-4.jpg" alt="image">
+                    <div class="team-mask bg-white rounded d-flex align-items-center">
+                        <h4>Zoltan</h4>
+                        <h6 class="card-subtitle mt-n5">Founder</h6>
+                        <ul class="social-buttons">
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-slack">
+                                    <i class="fab fa-slack-hash"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="btn btn-link btn-google-plus">
+                                    <i class="fab fa-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End of Profile Card -->
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-6">
+            <div class="col-12 col-lg-8">
+                <!--Accordion-->
+
+                <!--End of Accordion-->
+                <p class="text-center mb-4 mt-6">Would you like to work with us?</p>
+                <p class="text-center">
+                    <a href="contact.html" class="btn btn-primary animate-up-2">Become an advocate</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+{% endblock %}

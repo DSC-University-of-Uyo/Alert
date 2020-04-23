@@ -17,6 +17,7 @@ const Request = require('./server/models/request');
 var copRouter = require('./server/routes/cop');
 var civilianRouter = require('./server/routes/civilian');
 var apiRouter = require('./server/routes/api');
+var homeRouter = require('./server/routes/home');
 
 // Socket Events
 const socketEvents = require('./server/socket/events');
@@ -61,6 +62,7 @@ app.use(express.static('./public')); // setting the folder name (public) where a
 app.use('/', copRouter);
 app.use('/cops', apiRouter);
 app.use('/', civilianRouter);
+app.use('/', homeRouter);
 app.use(adminBro.options.rootPath, router)
 
 const server = http.Server(app);

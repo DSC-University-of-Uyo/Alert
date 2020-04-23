@@ -164,25 +164,25 @@
                 <div class="row">
                     <div class="col-md-3">
                         <a class="footer-brand" href="index.html"><img src="images/light.svg" alt="Brand logo footer"></a>
-                        <p class="mt-4 text-gray">For those seeking the finest in services and technology in a downtown business center, without the high cost.</p>
+                        <p class="mt-4 text-gray">Alert is a non-profit organisation committed to promoting public awareness and concern about crime and to propagate the concept of self-help in crime prevention.</p>
                         <ul class="social-buttons mb-5 mb-lg-0">
                             <li>
-                                <a href="https://twitter.com/themesberg" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-twitter text-white" data-toggle="tooltip" data-placement="top" title="Follow us on Twitter">
+                                <a href="https://twitter.com/" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-twitter text-white" data-toggle="tooltip" data-placement="top" title="Follow us on Twitter">
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com/themesberg" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-facebook text-white" data-toggle="tooltip" data-placement="top" title="Like us on Facebook">
+                                <a href="https://www.facebook.com/" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-facebook text-white" data-toggle="tooltip" data-placement="top" title="Like us on Facebook">
                                     <i class="fab fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/themesberg" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-github text-white" data-toggle="tooltip" data-placement="top" title="Star us on Github">
+                                <a href="https://github.com/" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-github text-white" data-toggle="tooltip" data-placement="top" title="Star us on Github">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://dribbble.com/themesberg" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-dribbble text-white" data-toggle="tooltip" data-placement="top" title="Like us on Dribbble">
+                                <a href="https://dribbble.com/" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-dribbble text-white" data-toggle="tooltip" data-placement="top" title="Like us on Dribbble">
                                     <i class="fab fa-dribbble"></i>
                                 </a>
                             </li>
@@ -192,21 +192,18 @@
                         <h6 class="font-weight-normal">About Us</h6>
                         <ul class="links-vertical">
                             <li>
-                                <a class="text-gray" href="https://themesberg.com/blog" target="_blank">Blog</a>
+                                <a class="text-gray" href="blog.html">Blog</a>
                             </li>
                             <li>
-                                <a class="text-gray" href="https://themesberg.com/about" target="_blank">About Us</a>
+                                <a class="text-gray" href="about.html">About Us</a>
                             </li>
                             <li>
-                                <a class="text-gray" href="https://themesberg.com/products" target="_blank">Products</a>
-                            </li>
-                            <li>
-                                <a class="text-gray" href="https://themesberg.com/contact" target="_blank">Contact Us</a>
+                                <a class="text-gray" href="contact.html">Contact Us</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3 col-lg-3 mt-4 mt-md-0">
-                        <h6 class="font-weight-normal">Market</h6>
+                        <h6 class="font-weight-normal">Type of scams</h6>
                         <ul class="links-vertical">
                             <li>
                                 <a class="text-gray" href="#">Sales FAQ</a>

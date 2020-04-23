@@ -7,7 +7,6 @@ router.get('/', civilian.index);
 
 router.get('/offline.html', civilian.offline);
 
-// request to /civilian.html?userId=ashwin will render our civilian.html page
 router.get('/civilian.html', (req, res) => {
     res.render('civilian.nj', {
         userId: req.query.userId
