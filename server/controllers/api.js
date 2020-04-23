@@ -43,9 +43,7 @@ exports.createCop = async(req, res) => {
 
     // const userId = req.query.userId // xtract userId from query params
     // const coords = [Number(req.body.lat), Number(req.body.lng)]; // lat, lng
-    console.log('---------------');
     const copDetails = await cop.createCop(req.body);
-    console.log('++++++++++++', copDetails)
 
     res.json({
         copDetails: copDetails

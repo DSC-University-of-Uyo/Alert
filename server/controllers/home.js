@@ -6,3 +6,8 @@ exports.contact = function(req, res) {
 exports.about = function(req, res) {
     res.render('about.nj');
 }
+
+
+exports.not_approved = function(req, res) {
+    res.render('not-approved.nj');
+}

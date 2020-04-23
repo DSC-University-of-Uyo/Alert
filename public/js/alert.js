@@ -1,22 +1,5 @@
-/*!
-
-=========================================================
-* Spaces Coworking Template
-=========================================================
-
-* Product Page: https://themesberg.com/product/templates/spaces-coworking-listing-template
-* Copyright 2018 Themesberg (https://www.themesberg.com)
-
-* Coded by www.themesberg.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-
 "use strict";
-$(document).ready(function () {
+$(document).ready(function() {
 
     // options
 
@@ -30,41 +13,41 @@ $(document).ready(function () {
     var $navbarCollapse = $('.navbar-main .collapse');
 
     // Collapse navigation
-    $navbarCollapse.on('hide.bs.collapse', function () {
+    $navbarCollapse.on('hide.bs.collapse', function() {
         var $this = $(this);
         $this.addClass('collapsing-out');
         $('html, body').css('overflow', 'initial');
     });
 
-    $navbarCollapse.on('hidden.bs.collapse', function () {
+    $navbarCollapse.on('hidden.bs.collapse', function() {
         var $this = $(this);
         $this.removeClass('collapsing-out');
     });
 
-    $navbarCollapse.on('shown.bs.collapse', function () {
+    $navbarCollapse.on('shown.bs.collapse', function() {
         $('html, body').css('overflow', 'hidden');
     });
 
-    $('.navbar-main .dropdown').on('hide.bs.dropdown', function () {
+    $('.navbar-main .dropdown').on('hide.bs.dropdown', function() {
         var $this = $(this).find('.dropdown-menu');
 
         $this.addClass('close');
 
-        setTimeout(function () {
+        setTimeout(function() {
             $this.removeClass('close');
         }, 200);
 
     });
 
-    $(document).on('click', '.mega-dropdown', function (e) {
+    $(document).on('click', '.mega-dropdown', function(e) {
         e.stopPropagation();
     });
 
-    $(document).on('click', '.navbar-nav > .dropdown', function (e) {
+    $(document).on('click', '.navbar-nav > .dropdown', function(e) {
         e.stopPropagation();
     });
 
-    $('.dropdown-submenu > .dropdown-toggle').click(function (e) {
+    $('.dropdown-submenu > .dropdown-toggle').click(function(e) {
         e.preventDefault();
         $(this).parent('.dropdown-submenu').toggleClass('show');
     });
@@ -82,24 +65,24 @@ $(document).ready(function () {
     }
 
     // Background images for sections
-    $('[data-background]').each(function () {
+    $('[data-background]').each(function() {
         $(this).css('background-image', 'url(' + $(this).attr('data-background') + ')');
     });
 
-    $('[data-background-inner]').each(function () {
+    $('[data-background-inner]').each(function() {
         $(this).find('.inner-bg').css('background-image', 'url(' + $(this).attr('data-background-inner') + ')');
     });
 
-    $('[data-background-color]').each(function () {
+    $('[data-background-color]').each(function() {
         $(this).css('background-color', $(this).attr('data-background-color'));
     });
 
-    $('[data-color]').each(function () {
+    $('[data-color]').each(function() {
         $(this).css('color', $(this).attr('data-color'));
     });
 
     // Datepicker
-    $('.datepicker')[0] && $('.datepicker').each(function () {
+    $('.datepicker')[0] && $('.datepicker').each(function() {
         $('.datepicker').datepicker({
             disableTouchKeyboard: true,
             autoclose: false,
@@ -107,7 +90,7 @@ $(document).ready(function () {
         });
     });
 
-    $('.availability')[0] && $('.availability').each(function () {
+    $('.availability')[0] && $('.availability').each(function() {
         $('.availability').datepicker({
             disableTouchKeyboard: true,
             autoclose: false,
@@ -120,7 +103,7 @@ $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
 
     // Popover
-    $('[data-toggle="popover"]').each(function () {
+    $('[data-toggle="popover"]').each(function() {
         var popoverClass = '';
         if ($(this).data('color')) {
             popoverClass = 'popover-' + $(this).data('color');
@@ -132,18 +115,18 @@ $(document).ready(function () {
     });
 
     $('[data-fancybox="images"]').fancybox({
-        afterLoad : function(instance, current) {
-          var pixelRatio = window.devicePixelRatio || 1;
-      
-          if ( pixelRatio > 1.5 ) {
-            current.width  = current.width  / pixelRatio;
-            current.height = current.height / pixelRatio;
-          }
+        afterLoad: function(instance, current) {
+            var pixelRatio = window.devicePixelRatio || 1;
+
+            if (pixelRatio > 1.5) {
+                current.width = current.width / pixelRatio;
+                current.height = current.height / pixelRatio;
+            }
         }
     });
 
     // Additional .focus class on form-groups
-    $('.form-control').on('focus blur', function (e) {
+    $('.form-control').on('focus blur', function(e) {
         $(this).parents('.form-group').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
     }).trigger('blur');
 
@@ -163,7 +146,7 @@ $(document).ready(function () {
                 min: parseInt(c.getAttribute('data-range-value-min')),
                 max: parseInt(c.getAttribute('data-range-value-max'))
             }
-        }), c.noUiSlider.on("update", function (a, b) {
+        }), c.noUiSlider.on("update", function(a, b) {
             f[b].textContent = a[b]
         })
     }
@@ -187,7 +170,7 @@ $(document).ready(function () {
                 min: parseInt(c.getAttribute('data-range-value-min')),
                 max: parseInt(c.getAttribute('data-range-value-max'))
             }
-        }), c.noUiSlider.on("update", function (a, b) {
+        }), c.noUiSlider.on("update", function(a, b) {
             f[b].textContent = a[b]
         })
     }
@@ -207,7 +190,7 @@ $(document).ready(function () {
                 min: parseInt(c.getAttribute('data-range-value-min')),
                 max: parseInt(c.getAttribute('data-range-value-max'))
             }
-        }), c.noUiSlider.on("update", function (a, b) {
+        }), c.noUiSlider.on("update", function(a, b) {
             f[b].textContent = a[b]
         })
     }
@@ -232,15 +215,15 @@ $(document).ready(function () {
                 min: parseInt(c.getAttribute('data-range-value-min')),
                 max: parseInt(c.getAttribute('data-range-value-max'))
             }
-        }), c.noUiSlider.on("update", function (a, b) {
+        }), c.noUiSlider.on("update", function(a, b) {
             f[b].textContent = a[b]
         })
     }
 
-    $(".progress-bar").each(function () {
-        $(this).waypoint(function () {
+    $(".progress-bar").each(function() {
+        $(this).waypoint(function() {
             var progressBar = $(".progress-bar");
-            progressBar.each(function (indx) {
+            progressBar.each(function(indx) {
                 $(this).css("width", $(this).attr("aria-valuenow") + "%");
             });
             $('.progress-bar').css({
@@ -248,19 +231,19 @@ $(document).ready(function () {
                 opacity: "1"
             });
         }, {
-                triggerOnce: true,
-                offset: '60%'
-            });
+            triggerOnce: true,
+            offset: '60%'
+        });
     });
 
     // When in viewport
     $('[data-toggle="on-screen"]')[0] && $('[data-toggle="on-screen"]').onScreen({
         container: window,
         direction: 'vertical',
-        doIn: function () {
+        doIn: function() {
             //alert();
         },
-        doOut: function () {
+        doOut: function() {
             // Do something to the matched elements as they get off scren
         },
         tolerance: 200,
@@ -270,7 +253,7 @@ $(document).ready(function () {
     });
 
     // Scroll to anchor with scroll animation
-    $('[data-toggle="scroll"]').on('click', function (event) {
+    $('[data-toggle="scroll"]').on('click', function(event) {
         var hash = $(this).attr('href');
         var offset = $(this).data('offset') ? $(this).data('offset') : 0;
 
@@ -283,7 +266,7 @@ $(document).ready(function () {
     });
 
     //Rotating Cards
-    $(document).on('click', '.card-rotate .btn-rotate', function () {
+    $(document).on('click', '.card-rotate .btn-rotate', function() {
         var $rotating_card_container = $(this).closest('.rotating-card-container');
 
         if ($rotating_card_container.hasClass('hover')) {
@@ -299,19 +282,19 @@ $(document).ready(function () {
         time: 1000,
         offset: 70,
         beginAt: 100,
-        formatter: function (n) {
+        formatter: function(n) {
             return n.replace(/,/g, '.');
         }
     });
 
     //Countdown
-    $('#clock').countdown('2020/10/10').on('update.countdown', function (event) {
-        var $this = $(this).html(event.strftime(''
-            + '<span>%-w</span> week%!w '
-            + '<span>%-d</span> day%!d '
-            + '<span>%H</span> hr '
-            + '<span>%M</span> min '
-            + '<span>%S</span> sec'));
+    $('#clock').countdown('2020/10/10').on('update.countdown', function(event) {
+        var $this = $(this).html(event.strftime('' +
+            '<span>%-w</span> week%!w ' +
+            '<span>%-d</span> day%!d ' +
+            '<span>%H</span> hr ' +
+            '<span>%M</span> min ' +
+            '<span>%S</span> sec'));
     });
 
     // Equalize height to the max of the elements
@@ -324,7 +307,7 @@ $(document).ready(function () {
         };
 
         // identify all unique id's
-        $('[data-equalize-height]').each(function () {
+        $('[data-equalize-height]').each(function() {
             var id = $(this).attr('data-equalize-height');
             if (!equalize.uniqueIds.includes(id)) {
                 equalize.uniqueIds.push(id)
@@ -333,10 +316,10 @@ $(document).ready(function () {
         });
 
         // add elements in order
-        $('[data-equalize-height]').each(function () {
+        $('[data-equalize-height]').each(function() {
             var $el = $(this);
             var id = $el.attr('data-equalize-height');
-            equalize.elements.map(function (elements) {
+            equalize.elements.map(function(elements) {
                 if (elements.id === id) {
                     elements.elements.push($el);
                 }
@@ -344,19 +327,19 @@ $(document).ready(function () {
         });
 
         // equalize
-        equalize.elements.map(function (elements) {
+        equalize.elements.map(function(elements) {
             var elements = elements.elements;
             if (elements.length) {
                 var maxHeight = 0;
 
                 // determine the larget height
-                elements.map(function ($element) {
+                elements.map(function($element) {
                     maxHeight = maxHeight < $element.outerHeight() ? $element.outerHeight() : maxHeight;
                 });
 
                 // make all elements with the same [data-equalize-height] value
                 // equal the larget height
-                elements.map(function ($element) {
+                elements.map(function($element) {
                     $element.height(maxHeight);
                 })
             }
@@ -364,12 +347,12 @@ $(document).ready(function () {
     }
 
     // update target element content to match number of characters
-    $('[data-bind-characters-target]').each(function () {
+    $('[data-bind-characters-target]').each(function() {
         var $text = $($(this).attr('data-bind-characters-target'));
         var maxCharacters = parseInt($(this).attr('maxlength'));
         $text.text(maxCharacters);
 
-        $(this).on('keyup change', function (e) {
+        $(this).on('keyup change', function(e) {
             var string = $(this).val();
             var characters = string.length;
             var charactersRemaining = maxCharacters - characters;
@@ -378,7 +361,7 @@ $(document).ready(function () {
     });
 
     // copy docs
-    $('.copy-docs').on('click', function () {
+    $('.copy-docs').on('click', function() {
         var $copy = $(this);
         var htmlEntities = $copy.parents('.nav-wrapper').siblings('.card').find('.tab-pane:last-of-type').html();
         var htmlDecoded = $('<div/>').html(htmlEntities).text().trim();
@@ -393,20 +376,20 @@ $(document).ready(function () {
         $copy.text('Copied!');
         $copy.addClass('copied');
 
-        setTimeout(function () {
+        setTimeout(function() {
             $copy.text('Copy');
             $copy.removeClass('copied');
         }, 1000);
     });
 
     // Autocomplete
-    var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+    var countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua &amp; Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia &amp; Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central Arfrican Republic", "Chad", "Chile", "China", "Colombia", "Congo", "Cook Islands", "Costa Rica", "Cote D Ivoire", "Croatia", "Cuba", "Curacao", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Polynesia", "French West Indies", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauro", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Pierre &amp; Miquelon", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "St Kitts &amp; Nevis", "St Lucia", "St Vincent", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor L'Este", "Togo", "Tonga", "Trinidad &amp; Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks &amp; Caicos", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Virgin Islands (US)", "Yemen", "Zambia", "Zimbabwe"];
     var autocompleteSearch = document.getElementById("search-location");
 
-    if(typeof(autocompleteSearch) != 'undefined' && autocompleteSearch != null) {
+    if (typeof(autocompleteSearch) != 'undefined' && autocompleteSearch != null) {
         autocomplete(autocompleteSearch, countries);
     }
-    
+
     // Review stars rating
     $('.stars-rating .star').on('mouseover', function() {
         var rating = $(this).attr('data-rating-value');
@@ -456,21 +439,21 @@ $(document).ready(function () {
         }
     });
 
-    $('#loadOnClick').click(function () {
+    $('#loadOnClick').click(function() {
         var $button = $(this);
         var $loadContent = $('#extraContent');
         var $allLoaded = $('#allLoadedText');
         $button.addClass('btn-loading');
         $button.attr('disabled', true);
 
-        setTimeout(function () {
+        setTimeout(function() {
             $loadContent.show();
             $button.hide();
             $allLoaded.show();
         }, 1500);
     });
 
-    if($('#filters-sidebar').length && $(window).width() > 1200) {
+    if ($('#filters-sidebar').length && $(window).width() > 1200) {
         var sidebar = new StickySidebar('#filters-sidebar', {
             containerSelector: '#spaces-container',
             innerWrapperSelector: '.sidebar-inner',
@@ -479,20 +462,20 @@ $(document).ready(function () {
         });
     } else {
         if ($('#filters-sidebar').length) {
-            $('#show-filters-button').on('click', function () {
-                if($(this).text() === 'Show filters') {
+            $('#show-filters-button').on('click', function() {
+                if ($(this).text() === 'Show filters') {
                     $('#filters-sidebar').removeClass('d-none');
                     $(this).text('Hide filters');
                 } else {
                     $('#filters-sidebar').addClass('d-none');
                     $(this).text('Show filters');
                 }
-                
+
             });
         }
     }
 
-    if($('#profile-sidebar').length) {
+    if ($('#profile-sidebar').length) {
         var profileSidebar = new StickySidebar('#profile-sidebar', {
             containerSelector: '#spaces-container',
             innerWrapperSelector: '.sidebar-inner',
@@ -501,4 +484,4 @@ $(document).ready(function () {
         });
     }
 
-});   
+});

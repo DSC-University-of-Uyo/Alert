@@ -7,14 +7,14 @@
                 <div class="row text-center d-flex align-items-center justify-content-center">
                     <div class="col-md-10 d-flex align-items-center">
                         <div>
-                            <img class="img-fluid w-50" src="images/offline.svg" alt="offline-image">
-                            <h1 class="mt-5 font-weight-light">No <span class="font-weight-bolder text-primary">Internet</span> Connection</h1>
+                            <img class="img-fluid w-50" src="images/id.svg" alt="id-image">
+                            <h1 class="mt-5 font-weight-light">Access <span class="font-weight-bolder text-primary">Denied</span></h1>
                             <p class="lead my-4">
-                                Looks like your device is offline please check your internet Connection.
+                                You do not have enough clearance to view the requested page. Please contact admin
                             </p>
-                            <button type="button" class="btn btn-primary animate-hover" onclick="window.history.back()">
+                            <button type="button" class="btn btn-primary animate-hover" onclick="window.location.href = '/'">
                                 <i class="fas fa-chevron-left mr-3 pl-2 animate-left-3"></i>
-                                Go back
+                                Go back home
                             </button>
                         </div>
                     </div>

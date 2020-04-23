@@ -184,6 +184,9 @@ function updateCopLocation(position) {
         lng: position.coords.longitude
     }).then((response) => {
         console.log(response)
+        if (!response.data.copDetails.approved) {
+            window.location.href = '/not-approved.html'
+        }
     })
 }
 
@@ -196,12 +199,13 @@ window.addEventListener('load', (event) => {
     watchID = navigator.geolocation.watchPosition(data => {
 
         if (userId !== null) {
-            axios.post(`/cops/update?userId=${userId}`, {
-                lat: data.coords.latitude,
-                lng: data.coords.longitude
-            }).then((response) => {
-                console.log('position updated', response)
-            })
+            // axios.post(`/cops/update?userId=${userId}`, {
+            //     lat: data.coords.latitude,
+            //     lng: data.coords.longitude
+            // }).then((response) => {
+            //     console.log('position updated', response)
+            // })
+            updateCopLocation(data);
 
             getCopData();
         }

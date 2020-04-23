@@ -31,6 +31,7 @@ function getUiConfig() {
                     }).then((response) => {
                         console.log(response)
                     })
+                    window.location.href = 'not-approved.html'
                 }
                 return false;
             }
