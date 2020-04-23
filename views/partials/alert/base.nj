@@ -6,9 +6,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
         <meta name="author" content="Ochui Princewill">
-        <link rel="stylesheet" href="node_modules/%40fortawesome/fontawesome-free/css/all.min.css">
-        <link rel="stylesheet" href="node_modules/%40fancyapps/fancybox/dist/jquery.fancybox.min.css">
-        <link rel="stylesheet" href="node_modules/prismjs/themes/prism.css">
+        <link rel="stylesheet" href="alert/%40fortawesome/fontawesome-free/css/all.min.css">
+        <link rel="stylesheet" href="alert/%40fancyapps/fancybox/dist/jquery.fancybox.min.css">
+        <link rel="stylesheet" href="alert/prismjs/themes/prism.css">
         <link rel="manifest" href="manifest.json">
         <script src="js/manup.min.js"></script>
         <!-- Spaces CSS -->
@@ -249,21 +249,21 @@
             </div>
         </footer>
         <!-- Core -->
-        <script src="node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="node_modules/headroom.js/dist/headroom.min.js"></script>
+        <script src="alert/jquery/dist/jquery.min.js"></script>
+        <script src="alert/popper.js/dist/umd/popper.min.js"></script>
+        <script src="alert/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="alert/headroom.js/dist/headroom.min.js"></script>
         <!-- Vendor JS -->
-        <script src="node_modules/onscreen/dist/on-screen.umd.min.js"></script>
-        <script src="node_modules/nouislider/distribute/nouislider.min.js"></script>
-        <script src="node_modules/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
-        <script src="node_modules/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-        <script src="node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
-        <script src="node_modules/jquery.counterup/jquery.counterup.min.js"></script>
-        <script src="node_modules/jquery-countdown/dist/jquery.countdown.min.js"></script>
-        <script src="node_modules/prismjs/prism.js"></script>
-        <script src="node_modules/%40fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
-        <script src="node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="alert/onscreen/dist/on-screen.umd.min.js"></script>
+        <script src="alert/nouislider/distribute/nouislider.min.js"></script>
+        <script src="alert/sticky-sidebar/dist/sticky-sidebar.min.js"></script>
+        <script src="alert/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="alert/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="alert/jquery.counterup/jquery.counterup.min.js"></script>
+        <script src="alert/jquery-countdown/dist/jquery.countdown.min.js"></script>
+        <script src="alert/prismjs/prism.js"></script>
+        <script src="alert/%40fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+        <script src="alert/jquery-validation/dist/jquery.validate.min.js"></script>
         <script src="assets/js/autocomplete.js"></script>
         <script src="assets/js/jquery.slideform.js"></script>
         <!-- Spaces JS -->
