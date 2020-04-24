@@ -99,26 +99,18 @@
             <div class="card-group shadow-soft border border-soft">
               <div class="card">
                 <div class="card-body p-5">
-                  <div class="progress-wrapper mb-5">
-                    <div class="progress-info info-xl">
-                      <div class="progress-label">
-                        <h6 class="font-weight-normal text-dark">Space occupancy level</h6>
-                      </div>
-                      <div class="progress-percentage">
-                        <span class="text-dark">85%</span></div>
-                    </div>
-                    <div class="progress progress-lg">
-                      <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div>
-                    </div>
-                  </div>
+                  
                   <div class="d-flex flex-column flex-lg-row d-sm-flex justify-content-between align-items-center">
                     <div class="mb-5 mb-lg-0">
-                      <h4 class="font-weight-normal">Book your tour experience today!</h4>
-                      <p class="lead mb-0">Schedule a tour, make an appointment to rent space<br class="d-none d-lg-inline">at Themesberg, or ask for more information.</p>
+                      <h4 class="font-weight-normal">Need quick help!</h4>
+                      <p class="lead mb-0">
+                      At an emergency scene or need the immediate help of security operatives? 
+                      <br class="d-none d-lg-inline">Click the button to alert a close by security personnel
+                      </p>
                     </div>
                     <div class="align-content-end">
                       <!-- Button Modal -->
-                      <button type="button" class="btn btn-primary animate-up-2" data-toggle="modal" data-target="#modal-form">Schedule a tour</button>
+                      <a href="/civilian.html" class="btn btn-primary animate-up-2" >Request Help</a>
                     </div>
                     <!-- Modal Content -->
                     <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
@@ -217,7 +209,7 @@
             <div>
               <a href="html/pages/all-spaces.html" class="btn btn-primary animate-up-2 mb-2">Browse All</a>
             </div>
-            <span class="font-xs">142 spaces in 6 countries</span></div>
+            {# <span class="font-xs">142 spaces in 6 countries</span></div> #}
         </div>
       </div>
     </section>
@@ -377,7 +369,7 @@
                       <i class="star fas fa-star text-warning"></i>
                       <i class="star fas fa-star text-warning"></i>
                       <i class="star fas fa-star text-warning"></i>
-                    </span>
+   `                 </span>
                     <blockquote class="blockquote">
                     I used Themesberg's logo creation services along with their website 
                     development services. They have been a pleasure to work with and have been responsive to all questions asked. I have recommended them to some of
