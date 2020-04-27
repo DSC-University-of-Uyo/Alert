@@ -21,13 +21,13 @@
             <header class="header-global">
                 <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-dark navbar-theme-primary headroom py-lg-2 px-lg-6">
                     <div class="container">
-                        <a class="navbar-brand" href="index.html"><img class="navbar-brand-dark" src="images/light.svg" alt="Logo light">
+                        <a class="navbar-brand" href="/"><img class="navbar-brand-dark" src="images/light.svg" alt="Logo light">
                             <img class="navbar-brand-light" src="images/secondary.svg" alt="Logo dark"></a>
                         <div class="navbar-collapse collapse" id="navbar_global">
                             <div class="navbar-collapse-header">
                                 <div class="row">
                                     <div class="col-6 collapse-brand">
-                                        <a href="index.html"><img src="images/primary.svg" alt="Menu logo"></a>
+                                        <a href="/"><img src="images/primary.svg" alt="Menu logo"></a>
                                     </div>
                                     <div class="col-6 collapse-close">
                                         <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"></a>
@@ -36,7 +36,7 @@
                             </div>
                             <ul class="navbar-nav navbar-nav-hover ml-3">
                                 <li class="nav-item">
-                                    <a href="index.html" class="nav-link">
+                                    <a href="/" class="nav-link">
                                         <span class="nav-link-inner-text">Home</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -166,30 +166,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a class="footer-brand" href="index.html"><img src="images/light.svg" alt="Brand logo footer"></a>
+                            <a class="footer-brand" href="/"><img src="images/light.svg" alt="Brand logo footer"></a>
                             <p class="mt-4 text-gray">Alert is a non-profit organisation committed to promoting public awareness and concern about crime and to propagate the concept of self-help in crime prevention.</p>
-                            <ul class="social-buttons mb-5 mb-lg-0">
-                                <li>
-                                    <a href="https://twitter.com/" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-twitter text-white" data-toggle="tooltip" data-placement="top" title="Follow us on Twitter">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-facebook text-white" data-toggle="tooltip" data-placement="top" title="Like us on Facebook">
-                                        <i class="fab fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-github text-white" data-toggle="tooltip" data-placement="top" title="Star us on Github">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://dribbble.com/" target="_blank" rel="nofollow" class="btn btn-lg btn-link btn-dribbble text-white" data-toggle="tooltip" data-placement="top" title="Like us on Dribbble">
-                                        <i class="fab fa-dribbble"></i>
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                         <div class="col-sm-6 col-md-3 col-lg-2 mt-4 mt-md-0">
                             <h6 class="font-weight-normal">About Us</h6>
@@ -240,7 +218,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <small class="text-gray mt-3 form-text">We’ll never share your details. See our <a class="text-light" href="html/pages/legal.html">Privacy Policy</a>
+                            <small class="text-gray mt-3 form-text">We’ll never share your details. See our <a class="text-light" href="privacy.html">Privacy Policy</a>
                             </small>
                         </div>
                     </div>

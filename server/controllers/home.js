@@ -11,3 +11,8 @@ exports.about = function(req, res) {
 exports.not_approved = function(req, res) {
     res.render('not-approved.nj');
 }
+
+
+exports.privacy = function(req, res) {
+    res.render('privacy.nj');
+}
