@@ -16,3 +16,8 @@ exports.not_approved = function(req, res) {
 exports.privacy = function(req, res) {
     res.render('privacy.nj');
 }
+
+
+exports.report_scam = function(req, res) {
+    res.render('report-scam.nj')
+}

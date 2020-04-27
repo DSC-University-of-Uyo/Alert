@@ -11,5 +11,7 @@ router.get('/not-approved.html', home.not_approved);
 
 router.get('/privacy.html', home.privacy);
 
+router.get('/report-scam.html', home.report_scam);
+
 
 module.exports = router;

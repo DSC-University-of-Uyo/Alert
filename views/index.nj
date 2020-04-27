@@ -18,7 +18,7 @@
         <div class="row mt-4">
           <div class="col">
             <div class="card card-body">
-              <form autocomplete="off" class="row" method="get" action="https://demo.themesberg.com/spaces/html/pages/all-spaces.html">
+              <form autocomplete="off" class="row" method="get" action="">
                 <div class="col-12 col-lg-9">
                   <div class="form-group mb-lg-0">
                     <div class="input-group input-group-lg mb-lg-0">
@@ -38,48 +38,6 @@
     </section>
     <section class="section pb-lg-6 pb-5">
       <div class="container">
-        <div class="row">
-          <div class="col-6 col-lg-3">
-            <!-- Icon box -->
-            <div class="icon-box text-center">
-              <div class="icon icon-primary icon-xl">
-                <i class="fas fa-clock"></i>
-              </div>
-              <h6 class="font-weight-normal text-gray mt-4 mb-3">24 Hr Access</h6>
-            </div>
-            <!-- End of Icon box -->
-          </div>
-          <div class="col-6 col-lg-3">
-            <!-- Icon box -->
-            <div class="icon-box text-center">
-              <div class="icon icon-primary icon-xl">
-                <i class="fas fa-tachometer-alt"></i>
-              </div>
-              <h6 class="font-weight-normal text-gray mt-4 mb-3">Fast Internet</h6>
-            </div>
-            <!-- End of Icon box -->
-          </div>
-          <div class="col-6 col-lg-3">
-            <!-- Icon box -->
-            <div class="icon-box text-center">
-              <div class="icon icon-primary icon-xl">
-                <i class="fas fa-user-tie"></i>
-              </div>
-              <h6 class="font-weight-normal text-gray mt-4 mb-3">Good Coworkers</h6>
-            </div>
-            <!-- End of Icon box -->
-          </div>
-          <div class="col-6 col-lg-3">
-            <!-- Icon box -->
-            <div class="icon-box text-center">
-              <div class="icon icon-primary icon-xl">
-                <i class="fas fa-city"></i>
-              </div>
-              <h6 class="font-weight-normal text-gray mt-4 mb-3">Modern Building</h6>
-            </div>
-            <!-- End of Icon box -->
-          </div>
-        </div>
         <div class="row mt-6">
           <div class="col-md-4">
             <h2 class="h1 mb-5">LET'S   <span class="font-weight-bold">FIGHT</span><br> SCAMS.</h2>

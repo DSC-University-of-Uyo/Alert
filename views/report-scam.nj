@@ -1,0 +1,143 @@
+{% extends "partials/alert/base.nj" %}
+
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="submit-wizard mt-6 mt-md-0">
+                        <form action="#" method="post" id="spaceSubmitForm">
+                            <div class="slideform-slide justify-content-center align-items-center mt-5">
+                                <div class="slideform-group col-10">
+                                    <h3 class="font-normal">Step 1: Briefly describe your experience </h3>
+                                    <p class="lead mb-5">Tell the world how it happened, when it happened and how much you lost. This will help others identify such activity quickly</p>
+                                    <textarea class="form-control my-4" placeholder="Tell the world how it happened, when it happened and how much you lost. This will help others identify such activity quickly" id="exampleFormControlTextarea" rows="6"></textarea>
+                                </div>
+                            </div>
+                            <div class="slideform-slide justify-content-center align-items-center">
+                                <div class="slideform-group col-12 col-md-8">
+                                    <h3>Step 2: Scam details</h3>
+                                    <p class="lead mb-5">Where did you first connect with the scammer</p>
+                                    <select class="form-control mb-3">
+                                        <option value="">Please select</option>
+                                        <option value="Phone (Voice)">Phone (Voice)</option>
+                                        <option value="Text Message">Text Message</option>
+                                        <option value="Internet">Internet</option>
+                                        <option value="Email">Email</option>
+                                        <option value="Social Networking / Online Forums">Social Networking / Online Forums</option>
+                                        <option value="Mail">Mail</option>
+                                        <option value="In Person">In Person</option>
+                                        <option value="Fax">Fax</option>
+                                        <option value="Facebook">Facebook</option>
+                                        <option value="Online Shopping Site">Online Shopping Site</option>
+                                    </select>
+                                    <p class="lead mb-5">Select the option that best matches the scam you are reporting</p>
+                                    <select class="form-control mb-3">
+                                        <option value="" selected="selected">Please Select</option>
+                                        <option value="apple-scam">Apple Scam</option>
+                                        <option value="car-rental-scam">Car Rental Scam</option>
+                                        <option value="cold-call-supplier-scam">Cold Call Supplier Scam</option>
+                                        <option value="credit-for-sex-scam">Credit-for-Sex Scam</option>
+                                        <option value="cyber-extortion-scam">Cyber Extortion Scam</option>
+                                        <option value="home-room-rental-scam">Home/Room Rental Scam</option>
+                                        <option value="impersonation-scam">Impersonation Scam</option>
+                                        <option value="inheritance-scam">Inheritance Scam</option>
+                                        <option value="internet-love-scam">Internet Love Scam</option>
+                                        <option value="investment-scam">Investment Scam</option>
+                                        <option value="job-scam">Job Scam</option>
+                                        <option value="kidnap-scam">Kidnap Scam</option>
+                                        <option value="line-facebook-scam">Line/Facebook Scam</option>
+                                        <option value="loan-scam">Loan Scam</option>
+                                        <option value="lottery-scam">Lottery Scam</option>
+                                        <option value="money-mule-scam">Money Mule Scam</option>
+                                        <option value="online-purchase-scam">Online Purchase Scam</option>
+                                        <option value="online-travel-vacation-scam">Online Travel Vacation Scam</option>
+                                        <option value="paypal-email-scam">PayPal Email Scam</option>
+                                        <option value="phishing-scam">Phishing Scam</option>
+                                        <option value="scam-using-wechat">Scam Using WeChat</option>
+                                        <option value="software-update-scam">Software Update Scam</option>
+                                        <option value="spoofed-hacked-email-scam">Spoofed/Hacked Email Scam</option>
+                                        <option value="wangiri-scam">Wangiri Scam</option>
+                                    </select>
+                                    <!-- <p class="lead mb-5">What is the Name/Username/Company of the scammer</p>
+                                    <input class="form-control mb-3" placeholder="Company (Legal name)" type="text">
+                                    <input class="form-control mb-3" placeholder="Full name" type="text">
+                                    <input class="form-control mb-3" placeholder="Email address" type="email">
+                                    <input class="form-control mb-3" placeholder="Your phone number" type="number"> -->
+                                </div>
+                            </div>
+                            <div class="slideform-slide justify-content-center align-items-center">
+                                <div class="slideform-group col-12 col-md-8">
+                                    <h3>Step 3: Scammer details</h3>
+                                    <p class="lead mb-5">What is the Name/Username/Company of the scammer</p>
+                                    <input class="form-control mb-3" placeholder="Username" type="text">
+                                    <p class="lead mb-5">Phone number used by the scammer</p>
+                                    <input class="form-control mb-3" placeholder="Phone number" type="text">
+                                    <p class="lead mb-5">Email used by the scammer</p>
+                                    <input class="form-control mb-3" placeholder="Email Address" type="text">
+                                    <p class="lead mb-5">Any other details given by the scammer </p>
+                                    <input class="form-control mb-3" placeholder="Example: Bank account number" type="text">
+                                </div>
+                            </div>
+                            <div class="slideform-slide justify-content-center align-items-center">
+                                <div class="slideform-group col-12 col-md-8">
+                                    <h3>Step 4: Describe your losses</h3>
+                                    <p class="lead mb-5">Did you loss any money?</p>
+                                    <div class="options options-list mb-4">
+                                        <label>
+                                            <input type="radio" name="group1">
+                                            <span>Yes</span></label>
+                                        <label>
+                                            <input type="radio" name="group1">
+                                            <span>No</span></label>
+                                        <p class="lead mb-5">If yes please state amount</p>
+                                        <input class="form-control mb-3" placeholder="" type="text">
+                                        <p class="lead mb-5">If No describe what you loss</p>
+                                        <input class="form-control mb-3" placeholder="Example: Bank account number" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="slideform-slide justify-content-center align-items-center">
+                                <div class="slideform-group col-12 col-md-8">
+                                    <h2>Step 8: Almost done</h2>
+                                    <p class="lead mb-5">I agree that the information I have submitted is correct and I am willing to share my story to raise awareness of scams.</p>
+                                    <div class="options options-buttons mb-4">
+                                        <label>
+                                            <input type="radio" name="group7" value="valid">
+                                            <span>Yes</span></label>
+                                        <label>
+                                            <input type="radio" name="group7" value="invalid">
+                                            <span>No</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slideform-slide justify-content-center align-items-center">
+                                <div class="slideform-group text-center col-10">
+                                    <h2 class="mt-5">Your story has been submitted!</h2>
+                                    <p class="lead mb-4">Thank you</p>
+                                    <a href="/" class="btn btn-primary animate-hover">
+                                        <i
+                                            class="fas fa-chevron-left mr-3 pl-2 animate-left-4"></i>Back to
+                                        homepage</a>
+                                </div>
+                            </div>
+                            <footer class="slideform-footer">
+                                <div class="slideform-progress-bar">
+                                    <span></span></div>
+                                <div class="buttons">
+                                    <button class="slideform-btn slideform-btn-prev">
+                                        <i class="fas fa-arrow-circle-left"></i>
+                                    </button>
+                                    <button class="slideform-btn slideform-btn-next">
+                                        <i class="fas fa-arrow-circle-right"></i>
+                                    </button>
+                                </div>
+                            </footer>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
