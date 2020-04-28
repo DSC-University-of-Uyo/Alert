@@ -6,19 +6,19 @@
             <div class="row">
                 <div class="col">
                     <div class="submit-wizard mt-6 mt-md-0">
-                        <form action="#" method="post" id="spaceSubmitForm">
+                        <form action="report-scam.html" method="post" id="scamSubmitForm">
                             <div class="slideform-slide justify-content-center align-items-center mt-5">
                                 <div class="slideform-group col-10">
                                     <h3 class="font-normal">Step 1: Briefly describe your experience </h3>
                                     <p class="lead mb-5">Tell the world how it happened, when it happened and how much you lost. This will help others identify such activity quickly</p>
-                                    <textarea class="form-control my-4" placeholder="Tell the world how it happened, when it happened and how much you lost. This will help others identify such activity quickly" id="exampleFormControlTextarea" rows="6"></textarea>
+                                    <textarea class="form-control my-4" placeholder="Tell the world how it happened, when it happened and how much you lost. This will help others identify such activity quickly" id="exampleFormControlTextarea" rows="6" name="story"></textarea>
                                 </div>
                             </div>
                             <div class="slideform-slide justify-content-center align-items-center">
                                 <div class="slideform-group col-12 col-md-8">
                                     <h3>Step 2: Scam details</h3>
                                     <p class="lead mb-5">Where did you first connect with the scammer</p>
-                                    <select class="form-control mb-3">
+                                    <select class="form-control mb-3" name="first_contact">
                                         <option value="">Please select</option>
                                         <option value="Phone (Voice)">Phone (Voice)</option>
                                         <option value="Text Message">Text Message</option>
@@ -32,7 +32,7 @@
                                         <option value="Online Shopping Site">Online Shopping Site</option>
                                     </select>
                                     <p class="lead mb-5">Select the option that best matches the scam you are reporting</p>
-                                    <select class="form-control mb-3">
+                                    <select class="form-control mb-3" name="scam_type">
                                         <option value="" selected="selected">Please Select</option>
                                         <option value="apple-scam">Apple Scam</option>
                                         <option value="car-rental-scam">Car Rental Scam</option>
@@ -59,24 +59,20 @@
                                         <option value="spoofed-hacked-email-scam">Spoofed/Hacked Email Scam</option>
                                         <option value="wangiri-scam">Wangiri Scam</option>
                                     </select>
-                                    <!-- <p class="lead mb-5">What is the Name/Username/Company of the scammer</p>
-                                    <input class="form-control mb-3" placeholder="Company (Legal name)" type="text">
-                                    <input class="form-control mb-3" placeholder="Full name" type="text">
-                                    <input class="form-control mb-3" placeholder="Email address" type="email">
-                                    <input class="form-control mb-3" placeholder="Your phone number" type="number"> -->
+
                                 </div>
                             </div>
                             <div class="slideform-slide justify-content-center align-items-center">
                                 <div class="slideform-group col-12 col-md-8">
                                     <h3>Step 3: Scammer details</h3>
                                     <p class="lead mb-5">What is the Name/Username/Company of the scammer</p>
-                                    <input class="form-control mb-3" placeholder="Username" type="text">
+                                    <input class="form-control mb-3" placeholder="Name/Username/Company of the scammer" type="text" name="scammer_name">
                                     <p class="lead mb-5">Phone number used by the scammer</p>
-                                    <input class="form-control mb-3" placeholder="Phone number" type="text">
+                                    <input class="form-control mb-3" placeholder="Phone number" type="text" name="scammer_phone">
                                     <p class="lead mb-5">Email used by the scammer</p>
-                                    <input class="form-control mb-3" placeholder="Email Address" type="text">
+                                    <input class="form-control mb-3" placeholder="Email Address" type="text" name="scammer_email">
                                     <p class="lead mb-5">Any other details given by the scammer </p>
-                                    <input class="form-control mb-3" placeholder="Example: Bank account number" type="text">
+                                    <input class="form-control mb-3" placeholder="Example: Bank account number" type="text" name="scammer_extra">
                                 </div>
                             </div>
                             <div class="slideform-slide justify-content-center align-items-center">
@@ -85,19 +81,19 @@
                                     <p class="lead mb-5">Did you loss any money?</p>
                                     <div class="options options-list mb-4">
                                         <label>
-                                            <input type="radio" name="group1">
+                                            <input type="radio" name="lost_money">
                                             <span>Yes</span></label>
                                         <label>
-                                            <input type="radio" name="group1">
+                                            <input type="radio" name="lost_money">
                                             <span>No</span></label>
                                         <p class="lead mb-5">If yes please state amount</p>
-                                        <input class="form-control mb-3" placeholder="" type="text">
+                                        <input class="form-control mb-3" placeholder="" type="text" name="amount_lost">
                                         <p class="lead mb-5">If No describe what you loss</p>
-                                        <input class="form-control mb-3" placeholder="Example: Bank account number" type="text">
+                                        <input class="form-control mb-3" placeholder="Example: Bank account number" type="text" name="data_lost">
                                     </div>
                                 </div>
                             </div>
-                           
+
                             <div class="slideform-slide justify-content-center align-items-center">
                                 <div class="slideform-group col-12 col-md-8">
                                     <h2>Step 8: Almost done</h2>

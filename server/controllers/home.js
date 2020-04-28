@@ -1,3 +1,5 @@
+var scam = require('../services/scam');
+
 exports.contact = function(req, res) {
     res.render('contact.nj');
 }
@@ -20,4 +22,9 @@ exports.privacy = function(req, res) {
 
 exports.report_scam = function(req, res) {
     res.render('report-scam.nj')
+}
+
+exports.save_report = function(req, res) {
+    scam.addReport(req.body);
+    res.json({})
 }

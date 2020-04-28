@@ -431,11 +431,28 @@ $(document).ready(function() {
 
     $('#current-year').text(new Date().getFullYear());
 
-    var $slideForm = $('#spaceSubmitForm');
+    var $slideForm = $('#scamSubmitForm');
     $('#slideform-btn-submit').text('Send');
-    $('#spaceSubmitForm').slideform({
+    $('#scamSubmitForm').slideform({
+        // validate: {
+        //     rules: {
+        //         group7: {
+        //             required: true,
+        //             equals: "valid"
+        //         }
+        //     },
+        //     messages: {
+        //         group7: {
+        //             required: 'Please select an option',
+        //             equals: 'You must select valid!'
+        //         }
+        //     }
+        // },
         submit: function(event, form) {
-            $slideForm.trigger('goForward');
+            $.post("report-scam.html", function(data, status) {
+                console.log("Data: " + data + "\nStatus: " + status);
+                $slideForm.trigger('goForward');
+            });
         }
     });
 

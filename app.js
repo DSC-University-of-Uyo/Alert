@@ -12,6 +12,7 @@ require('./server/config/mongoose');
 //Models
 const Cop = require('./server/models/cop');
 const Request = require('./server/models/request');
+const Scam = require('./server/models/scam');
 
 //Routes
 var copRouter = require('./server/routes/cop');
@@ -31,7 +32,7 @@ AdminBro.registerAdapter(AdminBroMongoose)
 const adminBro = new AdminBro({
     // databases: [],
     rootPath: '/admin',
-    resources: [Cop, Request],
+    resources: [Cop, Request, Scam],
     branding: {
         companyName: 'Alert.',
     },

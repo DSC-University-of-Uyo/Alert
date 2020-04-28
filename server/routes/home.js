@@ -13,5 +13,6 @@ router.get('/privacy.html', home.privacy);
 
 router.get('/report-scam.html', home.report_scam);
 
+router.post('/report-scam.html', home.save_report);
 
 module.exports = router;
