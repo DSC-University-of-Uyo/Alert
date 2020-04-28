@@ -81,10 +81,10 @@
                                     <p class="lead mb-5">Did you loss any money?</p>
                                     <div class="options options-list mb-4">
                                         <label>
-                                            <input type="radio" name="lost_money">
+                                            <input type="radio" name="lost_money" value="true">
                                             <span>Yes</span></label>
                                         <label>
-                                            <input type="radio" name="lost_money">
+                                            <input type="radio" name="lost_money" value="false">
                                             <span>No</span></label>
                                         <p class="lead mb-5">If yes please state amount</p>
                                         <input class="form-control mb-3" placeholder="" type="text" name="amount_lost">

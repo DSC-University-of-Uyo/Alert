@@ -449,8 +449,9 @@ $(document).ready(function() {
         //     }
         // },
         submit: function(event, form) {
-            $.post("report-scam.html", function(data, status) {
+            $.post("report-scam.html", $slideForm.serialize(), function(data, status) {
                 console.log("Data: " + data + "\nStatus: " + status);
+                console.log(data)
                 $slideForm.trigger('goForward');
             });
         }
