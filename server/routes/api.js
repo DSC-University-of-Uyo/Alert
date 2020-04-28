@@ -13,6 +13,8 @@ router.get('/requests/info', api.fetchRequestInfo);
 
 router.post('/update', api.updateCopLocation);
 
+router.post('/update/address', api.updateCopAddress);
+
 router.post('/create', api.createCop)
 
 module.exports = router;

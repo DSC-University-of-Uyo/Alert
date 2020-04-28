@@ -101,6 +101,7 @@
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
             firebase.analytics();
+            var google_map_key = '{{GOOGLE_MAP_KEY}}';
         </script>
         <!-- Add Firebase products that you want to use -->
         <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-auth.js"></script>

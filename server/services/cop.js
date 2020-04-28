@@ -59,4 +59,16 @@
             })
     }
 
+    exports.updateCopAddress = function(userId, address) {
+        return Cop.findOneAndUpdate({
+                userId: userId
+            }, {
+                '$set': { 'location.address': address } // lat, lng
+            })
+            .exec()
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
 })()

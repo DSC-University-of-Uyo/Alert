@@ -39,6 +39,18 @@ exports.updateCopLocation = async(req, res) => {
 }
 
 
+exports.updateCopAddress = async(req, res) => {
+
+    const userId = req.query.userId // xtract userId from query params
+    const address = req.body.address;
+    const copDetails = await cop.updateCopAddress(userId, address);
+
+    res.json({
+        copDetails: copDetails
+    });
+}
+
+
 exports.createCop = async(req, res) => {
 
     // const userId = req.query.userId // xtract userId from query params

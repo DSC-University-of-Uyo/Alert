@@ -188,6 +188,13 @@ function updateCopLocation(position) {
             window.location.href = '/not-approved.html'
         }
     })
+
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude + '&key=' + google_map_key).then((res) => {
+        console.log(res.data.results[0].formatted_address)
+        axios.post(`/cops/update/address?userId=${userId}`, {
+            address: res.data.results[0].formatted_address,
+        })
+    })
 }
 
 
