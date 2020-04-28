@@ -71,9 +71,15 @@ if (navigator.geolocation) {
                 location: {
                     // address: data.feature["place_name"],
                     latitude: data.coords.latitude,
-                    longitude: data.coords.longitude
+                    longitude: data.coords.longitude,
+                    address: ''
                 }
             }
+
+            axios.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + data.coords.latitude + ',' + data.coords.longitude + '&key=' + google_map_key).then((res) => {
+                console.log(res.data.results[0].formatted_address)
+                requestDetails.location.address = res.data.results[0].formatted_address
+            })
 
             marker = new google
                 .maps
