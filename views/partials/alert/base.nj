@@ -121,7 +121,7 @@
                         <div class="col-sm-6 col-md-3 col-lg-3 mt-4 mt-md-0">
                             <h6 class="font-weight-normal">Type of scams</h6>
                             <ul class="links-vertical">
-                                <li>
+                                {# <li>
                                     <a class="text-gray" href="#">Sales FAQ</a>
                                 </li>
                                 <li>
@@ -138,15 +138,15 @@
                                 </li>
                                 <li>
                                     <a class="text-gray" href="#">Receive Payment</a>
-                                </li>
+                                </li> #}
                             </ul>
                         </div>
                         <div class="col-md-3 col-lg-4 col-xl-4 mt-3 mt-lg-0 mt-4 mt-md-0">
                             <h6 class="font-weight-normal">Subscribe</h6>
                             <p class="text-gray">Subscribe for email alerts on the latest scams.</p>
-                            <form>
+                            <form method="POST" action="/subscribe" id="contactForm">
                                 <div class="form-row">
-                                    <div class="col-12"><input type="email" class="form-control mb-2" placeholder="Email Address" name="email" required></div>
+                                    <div class="col-12"><input type="email" class="form-control mb-2" placeholder="Email Address" name="email_address" required></div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-secondary shadow-soft btn-block" data-loading-text="Sending">
                                             <span>Subscribe</span></button>
@@ -168,6 +168,7 @@
         <script src="alert/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="alert/headroom.js/dist/headroom.min.js"></script>
         <!-- Vendor JS -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src="alert/onscreen/dist/on-screen.umd.min.js"></script>
         <script src="alert/nouislider/distribute/nouislider.min.js"></script>
         <script src="alert/sticky-sidebar/dist/sticky-sidebar.min.js"></script>

@@ -1,6 +1,7 @@
 const http = require('http');
 const express = require('express');
 const mongoose = require('mongoose');
+const Mailchimp = require('mailchimp-api-v3')
 const bodyParser = require('body-parser');
 const nunjucks = require('nunjucks');
 const AdminBro = require('admin-bro')
@@ -64,6 +65,22 @@ app.use('/', copRouter);
 app.use('/cops', apiRouter);
 app.use('/', civilianRouter);
 app.use('/', homeRouter);
+
+
+app.post('/subscribe', (req, res) => {
+    const mailchimp = new Mailchimp(process.env.MAILCHIMP_API); // create MailChimp instance
+    mailchimp.post(`lists/${process.env.MAILCHIMP_LIST_ID}`, {
+        members: [{ // send a post request to create new subscription to the list
+            email_address: req.body.email_address,
+            status: "subscribed"
+        }]
+    }).then((result) => {
+        return res.send(result);
+    }).catch((error) => {
+        return res.send(error);
+    });
+});
+
 app.use(adminBro.options.rootPath, router)
 
 const server = http.Server(app);
