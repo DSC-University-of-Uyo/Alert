@@ -32,4 +32,15 @@
             });
     }
 
+
+    exports.allReports = function() {
+        return Scam.find({
+
+            })
+            .exec()
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
 })()
