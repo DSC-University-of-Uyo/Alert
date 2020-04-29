@@ -7,6 +7,7 @@ const nunjucks = require('nunjucks');
 const AdminBro = require('admin-bro')
 const AdminBroExpress = require('admin-bro-expressjs')
 const AdminBroMongoose = require('admin-bro-mongoose')
+const secure = require('express-force-https');
 
 require('./server/config/mongoose');
 
@@ -82,6 +83,7 @@ app.post('/subscribe', (req, res) => {
 });
 
 app.use(adminBro.options.rootPath, router)
+app.use(secure)
 
 const server = http.Server(app);
 
