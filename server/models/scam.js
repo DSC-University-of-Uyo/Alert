@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoose_fuzzy_searching = require('mongoose-fuzzy-searching');
 
 /**
  * Represents a request Schema.
@@ -16,7 +17,9 @@ const scamSchema = mongoose.Schema({
     amount_lost: { type: Number, required: false },
     data_lost: { type: String, required: false },
 
-}, { strict: false });
+});
+
+scamSchema.plugin(mongoose_fuzzy_searching, { fields: ['story', 'scam_type', 'scammer_name'] });
 
 /**
  * Represents a Request.

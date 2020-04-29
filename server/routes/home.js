@@ -17,4 +17,6 @@ router.post('/report-scam.html', home.save_report);
 
 router.get('/scam.html', home.scam);
 
+router.post('/scam.html', home.scam);
+
 module.exports = router;

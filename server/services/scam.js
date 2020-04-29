@@ -43,4 +43,8 @@
             });
     }
 
+    exports.search = function(query) {
+
+    }
+
 })()

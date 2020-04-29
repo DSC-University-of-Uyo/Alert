@@ -1,4 +1,5 @@
-var scam = require('../services/scam');
+const scam = require('../services/scam');
+const ScamModel = require('../models/scam');
 
 exports.contact = function(req, res) {
     res.render('contact.nj');
@@ -31,7 +32,20 @@ exports.save_report = function(req, res) {
 
 
 exports.scam = function(req, res) {
-    scam.allReports().then(c => {
-        res.render('scam.nj', { scams: c });
-    })
+
+
+    if (req.method == 'POST') {
+        ScamModel.fuzzySearch(req.body.search).then(c => {
+            res.render('scam.nj', { scams: c });
+        }).catch(e => {
+            scam.allReports().then(c => {
+                res.render('scam.nj', { scams: c });
+            })
+        });
+    } else {
+        scam.allReports().then(c => {
+            res.render('scam.nj', { scams: c });
+        })
+    }
+
 }

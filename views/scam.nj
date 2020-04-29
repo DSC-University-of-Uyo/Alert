@@ -23,11 +23,11 @@
         <div id="spaces-container" class="container">
             <div class="row">
                 <div class="col-12">
-                    <form autocomplete="off" class="row" action="#">
+                    <form autocomplete="off" class="row" method="POST" action="scam.html">
                         <div class="col-12 col-lg-10">
                             <div class="form-group mb-lg-0">
                                 <div class="input-group input-group-md mb-lg-0">
-                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-search"></i></span></div><input id="search-scam" type="text" class="form-control autocomplete" placeholder="Search scam" tabindex="1" required=""></div>
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-search"></i></span></div><input id="search-scam" name="search" type="text" class="form-control autocomplete" placeholder="Search scam" tabindex="1" required=""></div>
                             </div>
                         </div>
                         <div class="col-12 col-lg-2"><button class="btn btn-primary btn-block mt-md-0 animate-up-2" type="submit">Search</button></div>
