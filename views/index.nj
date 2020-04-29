@@ -170,7 +170,7 @@
 
                     <div class="col mt-lg-6 mt-3 d-flex flex-column text-center">
                         <div>
-                            <a href="html/pages/all-spaces.html" class="btn btn-primary animate-up-2 mb-2">Browse All</a>
+                            <a href="scam.html" class="btn btn-primary animate-up-2 mb-2">Browse All</a>
                         </div>
                         {# <span class="font-xs">142 spaces in 6 countries</span></div> #}
                     </div>

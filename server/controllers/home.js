@@ -28,3 +28,10 @@ exports.save_report = function(req, res) {
     scam.addReport(req.body);
     res.json({})
 }
+
+
+exports.scam = function(req, res) {
+    scam.allReports().then(c => {
+        res.render('scam.nj', { scams: c });
+    })
+}

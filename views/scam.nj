@@ -1,0 +1,79 @@
+{% extends "partials/alert/base.nj" %} {% block content %}
+<main>
+    <!-- Hero -->
+    <div class="section section-header bg-primary overlay-dark text-white" data-background="../../assets/img/hero.jpg" style="background-image: url(&quot;../../assets/img/hero.jpg&quot;);">
+        <div class="container">
+            <div class="row justify-content-center pt-5">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrumb-transparent">
+                            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                            <li class="breadcrumb-item active">Scam</li>
+                        </ol>
+                    </nav>
+                    <!-- Heading -->
+                    <h1 class="display-2">Scam report in <span class="font-weight-light">Nigeria</span></h1>
+                    <!-- Text -->
+                    <!-- <p class="lead text-muted mt-4">12,000+ coworking spaces with desks, offices &amp; meeting rooms in 165+ countries.<br>Discover and reserve space today.</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section pt-5 pt-lg-6">
+        <div id="spaces-container" class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form autocomplete="off" class="row" action="#">
+                        <div class="col-12 col-lg-10">
+                            <div class="form-group mb-lg-0">
+                                <div class="input-group input-group-md mb-lg-0">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-search"></i></span></div><input id="search-scam" type="text" class="form-control autocomplete" placeholder="Search scam" tabindex="1" required=""></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-2"><button class="btn btn-primary btn-block mt-md-0 animate-up-2" type="submit">Search</button></div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12 order-lg-1">
+                    <div class="justify-content-between align-items-center d-none d-md-flex">
+                        <div class="mr-3">
+                            <!-- <p class="mb-3 mb-md-0 font-small">Showing 0 - 8 of 62</p> -->
+                        </div>
+
+                    </div>
+                    <div class="tab-content mt-4 mt-lg-4" id="tabcontentexample-5">
+                        <div class="tab-pane fade show active" id="link-example-13" role="tabpanel" aria-labelledby="tab-link-example-13">
+                            <div class="row justify-content-between">
+                                <div class="col-lg-12">
+                                    {% for scam in scams %}
+                                        <!-- Article -->
+                                    <div class="blog-card mb-4">
+                                        <div class="card shadow-soft border-soft p-0 p-md-4">
+                                            <div class="card-body py-3">
+
+                                                <div class="mt-2 mt-lg-5">
+                                                    <a href="#" class="badge badge-sm badge-warning text-uppercase">{{scam.scam_type}}</a>
+
+                                                </div>
+                                                <p class="card-text mb-0 mb-lg-4">{{scam.story}}</p>
+                                            </div>
+                                            <div class="card-footer mx-4 px-0 pt-0">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End of article -->
+                                    {% endfor %}
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
