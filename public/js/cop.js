@@ -120,7 +120,7 @@ socket.on("request-for-help", (eventData) => {
     audio.loop = true;
     audio.play();
     // display civilian info
-    document.getElementById("notification").innerHTML = `Civilian ${requestDetails.civilianId}  needs help! They're at ${requestDetails.location.address}`;
+    document.getElementById("notification").innerHTML = `Civilian ${requestDetails.displayName}  needs help! They're at ${requestDetails.location.address}`;
 
     // Show civilian location on the map
 

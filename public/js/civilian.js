@@ -1,3 +1,5 @@
+import { request } from "express";
+
 let requestDetails = {};
 let copDetails = {};
 var map,
@@ -209,5 +211,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     if (user) {
         requestDetails.civilianId = user.uid;
+        requestDetails.civilianName = user.displayName;
     }
 });
