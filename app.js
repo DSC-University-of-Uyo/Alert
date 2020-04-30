@@ -37,10 +37,28 @@ const adminBro = new AdminBro({
     resources: [Cop, Request, Scam],
     branding: {
         companyName: 'Alert.',
+        softwareBrothers: false,
+        logo: '/images/light.svg',
     },
 })
 
-const router = AdminBroExpress.buildRouter(adminBro)
+const ADMIN = {
+    email: process.env.ADMIN_EMAIL,
+    password: process.env.ADMIN_PASSWORD,
+};
+
+// TODO: USE DYNAMIC USER
+
+const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
+    authenticate: async(email, password) => {
+        if (ADMIN.password === password && ADMIN.email === email) {
+            return ADMIN;
+        }
+        return null;
+    },
+    cookieName: 'adminbro',
+    cookiePassword: process.env.PASSWORD_HASH_KEY,
+});
 
 // Configure template engine
 nunjucks.configure(
@@ -50,14 +68,6 @@ nunjucks.configure(
         }).addGlobal('GOOGLE_MAP_KEY', process.env.GOOGLE_MAP_KEY)
     .addGlobal('FIREBASE_KEY', process.env.FIREBASE_KEY)
     .addGlobal('CLIENT_ID', process.env.CLIENT_ID);
-
-app.use(bodyParser.urlencoded({
-    extended: true,
-}));
-
-app.use(bodyParser.json({
-    limit: '5mb'
-}));
 
 // app.set('views', 'views'); // Set the folder-name from where you serve the html page.
 app.use(express.static('./public')); // setting the folder name (public) where all the static files like css, js, images etc are made available
@@ -84,6 +94,13 @@ app.post('/subscribe', (req, res) => {
 
 app.use(adminBro.options.rootPath, router)
 app.use(secure)
+app.use(bodyParser.urlencoded({
+    extended: true,
+}));
+
+app.use(bodyParser.json({
+    limit: '5mb'
+}));
 
 const server = http.Server(app);
 
