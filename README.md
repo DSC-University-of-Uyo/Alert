@@ -4,6 +4,7 @@
 Alartify is a Scam reporting and emergency tool.
 ## Links to live interfaces
 Cop interface= https://agile-reef-60327.herokuapp.com/cop.html
+Civilian Interface= https://agile-reef-60327.herokuapp.com/civilian.html
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
