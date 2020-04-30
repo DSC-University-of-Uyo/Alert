@@ -12,6 +12,8 @@ These instructions will get you a copy of the project up and running on your loc
  1. [Nodejs and npm/yarn](https://nodejs.org)
  2. [MongoDB](https://www.mongodb.com/)
  3. [Git](https://git-scm.com)
+ 4. [Google Maps API]
+ 5. [Firebase API KEY]
 
 
 ### How to install:
